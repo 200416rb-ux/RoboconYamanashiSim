@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Keyboard controller for the three-wheel independent-steering golf robot.
-/// Attach this component to the imported URDF root object.
+/// 「ぺろりん」用のキーボード操作プログラムです。
+/// このコンポーネントは、インポートしたURDFのルートへ追加してください。
 /// </summary>
 public class IndependentSteerGolfRobotController : MonoBehaviour
 {
+    // 10 bit ADC: 0～1023の1024段階。
+    private const int CatchAnalogMinimum = 0;
+    private const int CatchAnalogMaximum = 1023;
+
+    // ---------------------------------------------------------------------
+    // Inspectorから調整する値
+    // ---------------------------------------------------------------------
     [Header("走行")]
     [SerializeField] private float maximumLinearSpeed = 0.09f;
     [SerializeField] private float maximumYawSpeed = 0.7f;
@@ -28,6 +35,14 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     [Tooltip("20:40減速後の目視確認用上限。180 deg/s = 30 rpmです。")]
     [SerializeField] private float maximumWheelSpeedDegrees = 180f;
 
+    [Header("ステアリング初期角度・ゼロ点補正")]
+    [Tooltip("中央後輪の直進時角度です。")]
+    [SerializeField] private float centerRearSteeringOffsetDegrees = 90f;
+    [Tooltip("前方左輪の直進時角度です。")]
+    [SerializeField] private float frontLeftSteeringOffsetDegrees = -30f;
+    [Tooltip("前方右輪の直進時角度です。")]
+    [SerializeField] private float frontRightSteeringOffsetDegrees = 30f;
+
     [Header("カメラ・目")]
     [SerializeField] private float cameraSpeedDegrees = 60f;
     [SerializeField] private float cameraLimitDegrees = 80f;
@@ -38,18 +53,31 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     [Tooltip("サーボ側歯車角 / 目側歯車角。歯数が判明したら設定します。")]
     [SerializeField] private float eyeDriveGearRatio = 1f;
 
-    [Header("クラブ動作（曲線レールの近似角度）")]
-    [Tooltip("クラブの前端位置。part_334から求めた円弧上の初期姿勢です。")]
+    [Header("クラブ・キャッチのレール位置")]
+    [Tooltip("クラブの最前端。part_334から求めた円弧上の初期位置です。")]
     [SerializeField] private float clubFrontDegrees = 0f;
-    [Tooltip("キャッチを保管する円弧上端です。")]
-    [SerializeField] private float catchStoredDegrees = 0f;
-    [Tooltip("キャッチが自重で下降してクラブに掛かる位置です。")]
-    [SerializeField] private float catchAtClubDegrees = 90f;
-    [Tooltip("クラブを前端から引き上げる最大角度です。")]
-    [SerializeField] private float maximumPullDegrees = -75f;
+    [Tooltip("キャッチ最上部。アナログ値0に対応します。")]
+    [SerializeField] private float catchTopDegrees = 0f;
+    [Tooltip("キャッチ最下部。アナログ値1023に対応し、クラブを捕捉します。")]
+    [SerializeField] private float catchBottomDegrees = 90f;
+    [Tooltip("クラブを引き上げられる最大角度です。")]
+    [SerializeField] private float maximumClubPullDegrees = -75f;
     [SerializeField] private float clawOpenDegrees = 50f;
     [SerializeField] private float railRadius = 0.221f;
     [SerializeField] private float bearingRadius = 0.005f;
+
+    [Header("キャッチ手動操作（10 bit / 1024段階）")]
+    [Tooltip("I/Kキーで1秒間に変化するアナログ値です。")]
+    [SerializeField] private float catchAnalogSpeedPerSecond = 512f;
+    [Tooltip("この値以上まで下げると、爪が閉じている場合にクラブを捕捉します。")]
+    [SerializeField, Range(0, 1023)] private int captureAnalogThreshold = 1000;
+    [SerializeField] private float clawReleaseSeconds = 0.12f;
+    [SerializeField] private float clawCloseDelaySeconds = 0.35f;
+    [Tooltip("自由可動中の爪に与える、ごく小さい回転抵抗です。")]
+    [SerializeField] private float passiveClawDamping = 0.03f;
+    [Tooltip("自由可動中の爪の抵抗トルク上限です。0に近いほど軽く動きます。")]
+    [SerializeField] private float passiveClawForceLimit = 0.02f;
+
     [Header("定荷重ばね（左右2本）")]
     [Tooltip("ばね1本がクラブをレール接線方向へ引く力です。実測値があれば置き換えてください。")]
     [SerializeField] private float constantForcePerSpringNewtons = 3f;
@@ -58,12 +86,6 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     [SerializeField] private float springDriveDamping = 4f;
     [Tooltip("base_link_visual_245/247 のばね巻取り半径です。")]
     [SerializeField] private float springReelRadius = 0.01f;
-    [Range(0.15f, 1f)]
-    [SerializeField] private float strikeStrength = 0.7f;
-
-    [Header("ポテンショメータ（モータと1:1）")]
-    [SerializeField] private int potentiometerMinimum = 0;
-    [SerializeField] private int potentiometerMaximum = 1023;
 
     [Header("表示")]
     [SerializeField] private bool showOperationGuide = true;
@@ -92,9 +114,11 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     private float currentYawSpeed;
     private float cameraTarget;
     private float eyeTarget;
+    private float catchAnalogTarget;
     private float potentiometerValue;
     private Coroutine clubRoutine;
     private bool clubIsCaptured;
+    private bool clawIsOpen;
     private bool initialized;
 
     private sealed class WheelModule
@@ -129,9 +153,8 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
 
     private void UpgradeSerializedSettings()
     {
-        // Unity keeps values serialized by older component versions. Version 5
-        // adds the two constant-force springs and their visible winding reels.
-        if (configurationVersion >= 5)
+        // 古いScene/Prefabに保存された設定を、v7の初期値へ一度だけ更新します。
+        if (configurationVersion >= 7)
             return;
 
         maximumLinearSpeed = 0.09f;
@@ -139,19 +162,28 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         linearAcceleration = 0.25f;
         yawAcceleration = 1.5f;
         maximumWheelSpeedDegrees = 180f;
+        centerRearSteeringOffsetDegrees = 90f;
+        frontLeftSteeringOffsetDegrees = -30f;
+        frontRightSteeringOffsetDegrees = 30f;
         eyeSpeedDegrees = 45f;
         eyeLimitDegrees = 30f;
         clubFrontDegrees = 0f;
-        catchStoredDegrees = 0f;
-        catchAtClubDegrees = 90f;
-        maximumPullDegrees = -75f;
+        catchTopDegrees = 0f;
+        catchBottomDegrees = 90f;
+        maximumClubPullDegrees = -75f;
+        catchAnalogSpeedPerSecond = 512f;
+        captureAnalogThreshold = 1000;
+        clawReleaseSeconds = 0.12f;
+        clawCloseDelaySeconds = 0.35f;
+        passiveClawDamping = 0.03f;
+        passiveClawForceLimit = 0.02f;
         railRadius = 0.221f;
         bearingRadius = 0.005f;
         constantForcePerSpringNewtons = 3f;
         springReturnVelocityDegrees = 360f;
         springDriveDamping = 4f;
         springReelRadius = 0.01f;
-        configurationVersion = 5;
+        configurationVersion = 7;
     }
 
     private void Update()
@@ -160,6 +192,9 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         if (keyboard == null)
             return;
 
+        // -----------------------------------------------------------------
+        // 走行入力
+        // -----------------------------------------------------------------
         translationInput = Vector2.zero;
         yawInput = 0f;
 
@@ -174,6 +209,9 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
 
         translationInput = Vector2.ClampMagnitude(translationInput, 1f);
 
+        // -----------------------------------------------------------------
+        // カメラ・目の入力
+        // -----------------------------------------------------------------
         float cameraInput = 0f;
         if (keyboard.upArrowKey.isPressed) cameraInput += 1f;
         if (keyboard.downArrowKey.isPressed) cameraInput -= 1f;
@@ -197,14 +235,49 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         SetPositionTarget(leftEyeDriveGear, -eyeTarget * eyeDriveGearRatio);
         SetPositionTarget(rightEyeDriveGear, -eyeTarget * eyeDriveGearRatio);
 
+        // -----------------------------------------------------------------
+        // クラブキャッチの手動位置入力
+        // I: 上へ（アナログ値を減らす） / K: 下へ（アナログ値を増やす）
+        // -----------------------------------------------------------------
+        if (clubRoutine == null)
+        {
+            float catchInput = 0f;
+            if (keyboard.iKey.isPressed) catchInput -= 1f;
+            if (keyboard.kKey.isPressed) catchInput += 1f;
+
+            catchAnalogTarget = Mathf.Clamp(
+                catchAnalogTarget + catchInput * catchAnalogSpeedPerSecond * Time.deltaTime,
+                CatchAnalogMinimum,
+                CatchAnalogMaximum);
+
+            float catchTargetDegrees = AnalogToCatchDegrees(catchAnalogTarget);
+            SetPositionTarget(catchCarriage, catchTargetDegrees);
+
+            // 捕捉後は、キャッチを上げた量だけクラブもレール上で引き上げます。
+            if (clubIsCaptured)
+            {
+                float clubTargetDegrees = clubFrontDegrees +
+                    (catchTargetDegrees - catchBottomDegrees);
+                clubTargetDegrees = Mathf.Clamp(
+                    clubTargetDegrees,
+                    Mathf.Min(maximumClubPullDegrees, clubFrontDegrees),
+                    clubFrontDegrees);
+                SetPositionTarget(tongueClub, clubTargetDegrees);
+            }
+        }
+
+        // Spaceはキャッチを自動降下させません。現在位置で爪だけを開放します。
         if (keyboard.spaceKey.wasPressedThisFrame && clubRoutine == null)
-            clubRoutine = StartCoroutine(PlayClubSequence());
+        {
+            if (clubIsCaptured)
+                clubRoutine = StartCoroutine(ReleaseClub());
+            else
+                Debug.LogWarning("クラブ未捕捉です。Kキーでキャッチを最下部まで下げてください。", this);
+        }
 
-        if (keyboard.zKey.isPressed)
-            strikeStrength = Mathf.Max(0.15f, strikeStrength - 0.35f * Time.deltaTime);
-        if (keyboard.xKey.isPressed)
-            strikeStrength = Mathf.Min(1f, strikeStrength + 0.35f * Time.deltaTime);
-
+        // -----------------------------------------------------------------
+        // リセット・表示
+        // -----------------------------------------------------------------
         if (keyboard.rKey.wasPressedThisFrame)
         {
             if (clubRoutine != null)
@@ -240,6 +313,7 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         UpdateSpringReelTargets(clubDegrees);
 
         potentiometerValue = ReadPotentiometerValue();
+        TryCaptureClubAtBottom();
 
         DriveWheelModules(currentTranslation, currentYawSpeed);
         MoveArticulationRoot(currentTranslation, currentYawSpeed);
@@ -255,12 +329,23 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
                 rootBody = body;
         }
 
-        // CAD link names describe the old assumed layout. On the actual robot,
-        // front_wheel_link is the central rear wheel, while rear_left/right are
-        // the two front wheels. Their mounting-angle signs are therefore opposite.
-        AddWheelModule(bodies, "front_steer_link", "front_wheel_link", 90f);
-        AddWheelModule(bodies, "rear_left_steer_link", "rear_left_wheel_link", -30f);
-        AddWheelModule(bodies, "rear_right_steer_link", "rear_right_wheel_link", 30f);
+        // CAD上のfrontは実機の中央後輪、rear_left/rightは前方左右輪です。
+        // 下記3値をInspectorへ出しているため、実機との差を個別調整できます。
+        AddWheelModule(
+            bodies,
+            "front_steer_link",
+            "front_wheel_link",
+            centerRearSteeringOffsetDegrees);
+        AddWheelModule(
+            bodies,
+            "rear_left_steer_link",
+            "rear_left_wheel_link",
+            frontLeftSteeringOffsetDegrees);
+        AddWheelModule(
+            bodies,
+            "rear_right_steer_link",
+            "rear_right_wheel_link",
+            frontRightSteeringOffsetDegrees);
 
         bodies.TryGetValue("camera_tilt_link", out cameraTilt);
         bodies.TryGetValue("camera_drive_gear_link", out cameraDriveGear);
@@ -311,7 +396,7 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         {
             Steering = steering,
             Wheel = wheel,
-            LastSteeringTarget = 0f,
+            LastSteeringTarget = steeringOffsetDegrees,
             SteeringOffsetDegrees = steeringOffsetDegrees
         });
     }
@@ -325,6 +410,7 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
                 steeringStiffness,
                 steeringDamping,
                 steeringForceLimit);
+            SetPositionTarget(module.Steering, module.SteeringOffsetDegrees);
 
             ArticulationDrive wheelDrive = module.Wheel.xDrive;
             wheelDrive.stiffness = 0f;
@@ -343,7 +429,7 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         ConfigurePositionDrive(leftClubSpringReel, 20f, 2f, 0.10f);
         ConfigureClubSpringDrive();
         ConfigurePositionDrive(catchCarriage, 150f, 18f, 20f);
-        ConfigurePositionDrive(catchClaw, 80f, 8f, 5f);
+        ConfigureClawPassiveDrive();
 
         foreach (ArticulationBody bearing in tongueBearings)
             ConfigurePositionDrive(bearing, 8f, 1f, 0.08f);
@@ -390,6 +476,29 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     private void ConfigureClubPullDrive()
     {
         ConfigurePositionDrive(tongueClub, 420f, 24f, 45f);
+    }
+
+    private void ConfigureClawPassiveDrive()
+    {
+        if (catchClaw == null)
+            return;
+
+        // 平常時は位置目標を持たせません。地面やクラブに触れると、爪が
+        // 関節軸まわりに押し上げられ、その後は自重で下へ戻ります。
+        ArticulationDrive drive = catchClaw.xDrive;
+        drive.stiffness = 0f;
+        drive.damping = Mathf.Max(0f, passiveClawDamping);
+        drive.forceLimit = Mathf.Max(0f, passiveClawForceLimit);
+        drive.targetVelocity = 0f;
+        catchClaw.xDrive = drive;
+        catchClaw.WakeUp();
+    }
+
+    private void ConfigureClawLiftDrive()
+    {
+        // クラブ開放時だけサーボを有効にし、爪を上位置へ固定します。
+        ConfigurePositionDrive(catchClaw, 80f, 8f, 5f);
+        SetPositionTarget(catchClaw, clawOpenDegrees);
     }
 
     private void DriveWheelModules(Vector2 translation, float yawSpeed)
@@ -474,35 +583,40 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         rootBody.angularVelocity = angularVelocity;
     }
 
-    private IEnumerator PlayClubSequence()
+    // ---------------------------------------------------------------------
+    // クラブ捕捉・開放
+    // ---------------------------------------------------------------------
+
+    private void TryCaptureClubAtBottom()
     {
-        // 1. Pay out the wire. The carriage runs down the curved frame under
-        // its own weight. The free-moving claw rides over the club and latches.
-        SetPositionTarget(catchClaw, 0f);
-        SetPositionTarget(catchCarriage, catchAtClubDegrees);
-        yield return new WaitForSeconds(1.4f);
+        if (clubIsCaptured || clawIsOpen || clubRoutine != null)
+            return;
+
+        // キャッチを最下部まで手動で下げると、自由可動爪がクラブに掛かります。
+        if (potentiometerValue < captureAnalogThreshold)
+            return;
+
         clubIsCaptured = true;
         ConfigureClubPullDrive();
+        Debug.Log("クラブを捕捉しました。Iキーでキャッチを引き上げ、Spaceで開放できます。", this);
+    }
 
-        // 2. Wind the wire. The 1:1 potentiometer follows this winding angle.
-        // Pull-back distance determines the striking strength.
-        float clubPullTarget = clubFrontDegrees + maximumPullDegrees * strikeStrength;
-        float catchPullTarget = catchAtClubDegrees + maximumPullDegrees * strikeStrength;
-        SetPositionTarget(catchCarriage, catchPullTarget);
-        SetPositionTarget(tongueClub, clubPullTarget);
-        yield return new WaitForSeconds(Mathf.Lerp(0.7f, 1.8f, strikeStrength));
+    private IEnumerator ReleaseClub()
+    {
+        // Spaceではキャッチ位置を変更せず、爪だけを開いてクラブを放します。
+        clawIsOpen = true;
+        ConfigureClawLiftDrive();
+        yield return new WaitForSeconds(clawReleaseSeconds);
 
-        // 3. Open only the claw. The catch remains held by the wire, while the
-        // constant-force spring sends the released club toward the front.
-        SetPositionTarget(catchClaw, clawOpenDegrees);
-        yield return new WaitForSeconds(0.12f);
+        // 捕捉を解除すると、左右の定荷重ばねがクラブを前端へ戻します。
         clubIsCaptured = false;
         ConfigureClubSpringDrive();
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(clawCloseDelaySeconds);
 
-        // 4. Close the release servo. The catch stays at the pulled-back
-        // position until the next cycle pays the wire out again.
-        SetPositionTarget(catchClaw, 0f);
+        // サーボによる固定を解除します。爪は再び自由可動になり、
+        // 次回下降時には接触に合わせて受動的に持ち上がります。
+        clawIsOpen = false;
+        ConfigureClawPassiveDrive();
         clubRoutine = null;
     }
 
@@ -516,23 +630,42 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         SetPositionTarget(rightEyeOutput, 0f);
         SetPositionTarget(leftEyeDriveGear, 0f);
         SetPositionTarget(rightEyeDriveGear, 0f);
+
+        // キャッチ初期位置は最上部 = アナログ値0です。
+        catchAnalogTarget = CatchAnalogMinimum;
+        potentiometerValue = CatchAnalogMinimum;
         clubIsCaptured = false;
+        clawIsOpen = false;
         ConfigureClubSpringDrive();
-        SetPositionTarget(catchCarriage, catchStoredDegrees);
-        SetPositionTarget(catchClaw, 0f);
-        potentiometerValue = potentiometerMaximum;
+        ConfigureClawPassiveDrive();
+        SetPositionTarget(catchCarriage, catchTopDegrees);
+
+        // 停止状態でも、各車輪を直進用の初期角度へ合わせます。
+        foreach (WheelModule module in wheelModules)
+        {
+            module.LastSteeringTarget = module.SteeringOffsetDegrees;
+            SetPositionTarget(module.Steering, module.SteeringOffsetDegrees);
+        }
     }
 
     private float ReadPotentiometerValue()
     {
         float carriageDegrees = ReadJointDegrees(catchCarriage);
-
-        float winding01 = Mathf.InverseLerp(
-            catchAtClubDegrees,
-            catchStoredDegrees,
+        float position01 = Mathf.InverseLerp(
+            catchTopDegrees,
+            catchBottomDegrees,
             carriageDegrees);
 
-        return Mathf.Lerp(potentiometerMinimum, potentiometerMaximum, winding01);
+        return Mathf.Lerp(CatchAnalogMinimum, CatchAnalogMaximum, position01);
+    }
+
+    private float AnalogToCatchDegrees(float analogValue)
+    {
+        float position01 = Mathf.InverseLerp(
+            CatchAnalogMinimum,
+            CatchAnalogMaximum,
+            analogValue);
+        return Mathf.Lerp(catchTopDegrees, catchBottomDegrees, position01);
     }
 
     private static float ReadJointDegrees(ArticulationBody body)
@@ -607,23 +740,17 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         if (!showOperationGuide)
             return;
 
-        float targetWinding = Mathf.Clamp01(
-            Mathf.Abs(maximumPullDegrees) * strikeStrength /
-            Mathf.Max(Mathf.Abs(catchStoredDegrees - catchAtClubDegrees), 0.001f));
-        int targetPotentiometer = Mathf.RoundToInt(Mathf.Lerp(
-            potentiometerMinimum,
-            potentiometerMaximum,
-            targetWinding));
+        string catchState = clubIsCaptured ? "捕捉中" : "未捕捉";
 
         string guide =
-            "独立ステア・ゴルフロボット\n" +
+            "ぺろりん 操作ガイド\n" +
             "W / S : 前進・後退    A / D : 横移動\n" +
             "Q / E : 左右旋回      ↑ / ↓ : カメラ\n" +
-            "← / → : 目            Space : クラブ発射\n" +
-            "Z / X : 打力を下げる・上げる\n" +
-            $"打力 {strikeStrength * 100f:0}%  ポテンショメータ {potentiometerValue:0} / 目標 {targetPotentiometer}\n" +
+            "← / → : 目            I / K : キャッチを上げる・下げる\n" +
+            "Space : 現在位置でクラブを開放\n" +
+            $"キャッチ実測 {potentiometerValue:0} / 指令 {catchAnalogTarget:0}  （{catchState}）\n" +
             "R : 機構リセット      F1 : この表示を隠す";
 
-        GUI.Box(new Rect(15f, 15f, 430f, 145f), guide);
+        GUI.Box(new Rect(15f, 15f, 470f, 165f), guide);
     }
 }

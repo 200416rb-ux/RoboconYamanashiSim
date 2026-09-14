@@ -1,0 +1,3950 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="perorin">
+  <!-- ================================================================ -->
+  <!-- Robot: ぺろりん / internal URDF identifier: perorin              -->
+  <!-- Coordinates: ROS X=forward, Y=left, Z=up; dimensions are metres. -->
+  <!-- ================================================================ -->
+
+  <!-- DRIVE SYSTEM
+       Three independently steered wheels are driven through 20:40 gears.
+       Steering zero offsets and motor speed are calibrated in the Unity controller. -->
+
+  <!-- CLUB SYSTEM
+       The tongue club and catch share the circular rail fitted from part_334.
+       Rail centre in ROS X/Z = (-0.065574, 0.226767), radius = 0.221 m.
+       Catch top = analog 0; catch bottom = analog 1023 (10 bit, 1024 steps). -->
+
+  <!-- APPEARANCE NOTE
+       Motors, circuits and the touch monitor remain separately identifiable.
+       LED appearance/emission is a Unity material setting; it does not change URDF joints. -->
+
+  <!-- ==================== FIXED CHASSIS AND PARTS ==================== -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="8" />
+      <inertia ixx="0.08" ixy="0" ixz="0" iyy="0.08" iyz="0" izz="0.08" />
+    </inertial>
+    <visual name="base_link_visual_000">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_000.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_000">
+        <color rgba="0.5380651 0.5380651 0.5380651 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_001">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_001.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_001">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_002">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_002.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_002">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_003">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_003.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_003">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_004">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_004.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_004">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_005">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_005.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_005">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_006">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_006.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_006">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_007">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_007.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_007">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_008">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_008.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_008">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_009">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_009.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_009">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_010">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_010.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_010">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_011">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_011.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_011">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_012">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_012.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_012">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_013">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_013.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_013">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_014">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_014.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_014">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_015">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_015.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_015">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_016">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_016.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_016">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_017">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_017.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_017">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_018">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_018.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_018">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_019">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_019.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_019">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_020">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_020.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_020">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_021">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_021.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_021">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_022">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_022.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_022">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_023">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_023.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_023">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_024">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_024.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_024">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_025">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_025.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_025">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_026">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_026.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_026">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_027">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_027.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_027">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_028">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_028.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_028">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_029">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_029.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_029">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_030">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_030.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_030">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_031">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_031.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_031">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_032">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_032.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_032">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_033">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_033.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_033">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_034">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_034.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_034">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_035">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_035.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_035">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_036">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_036.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_036">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_037">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_037.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_037">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_038">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_038.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_038">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_039">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_039.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_039">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_040">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_040.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_040">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_041">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_041.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_041">
+        <color rgba="0.5380651 0.5380651 0.5380651 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_042">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_042.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_042">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_043">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_043.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_043">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_044">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_044.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_044">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_045">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_045.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_045">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_046">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_046.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_046">
+        <color rgba="0.836006939 0.853243649 0.8904402 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_047">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_047.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_047">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_048">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_048.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_048">
+        <color rgba="0.73664695 0.73664695 0.73664695 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_049">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_049.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_049">
+        <color rgba="0.824992537 0.8092402 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_050">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_050.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_050">
+        <color rgba="0.824992537 0.8092402 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_051">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_051.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_051">
+        <color rgba="0.73664695 0.73664695 0.73664695 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_052">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_052.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_052">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_053">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_053.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_053">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_054">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_054.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_054">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_055">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_055.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_055">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_056">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_056.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_056">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_057">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_057.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_057">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_058">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_058.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_058">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_059">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_059.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_059">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_060">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_060.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_060">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_061">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_061.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_061">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_062">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_062.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_062">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_063">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_063.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_063">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_064">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_064.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_064">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_065">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_065.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_065">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_066">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_066.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_066">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_067">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_067.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_067">
+        <color rgba="0.955603063 0.85959065 0.6938041 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_068">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_068.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_068">
+        <color rgba="0.5380651 0.5380651 0.5380651 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_069">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_069.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_069">
+        <color rgba="0.95377 0.95377 0.95377 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_070">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_070.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_070">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_071">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_071.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_071">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_072">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_072.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_072">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_073">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_073.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_073">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_074">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_074.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_074">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_075">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_075.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_075">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_076">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_076.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_076">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_077">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_077.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_077">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_078">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_078.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_078">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_079">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_079.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_079">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_080">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_080.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_080">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_081">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_081.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_081">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_082">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_082.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_082">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_083">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_083.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_083">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_084">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_084.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_084">
+        <color rgba="0.824992537 0.744325638 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_085">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_085.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_085">
+        <color rgba="0.955603063 0.85959065 0.6938041 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_086">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_086.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_086">
+        <color rgba="0.5380651 0.5380651 0.5380651 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_087">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_087.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_087">
+        <color rgba="0.95377 0.95377 0.95377 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_088">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_088.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_088">
+        <color rgba="0.95377 0.95377 0.95377 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_089">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_089.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_089">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_090">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_090.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_090">
+        <color rgba="0.836006939 0.853243649 0.8904402 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_091">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_091.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_091">
+        <color rgba="0.824992537 0.8092402 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_092">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_092.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_092">
+        <color rgba="0.882352352 0.882352352 0.882352352 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_093">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_093.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_093">
+        <color rgba="0.882352352 0.882352352 0.882352352 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_094">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_094.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_094">
+        <color rgba="0.352473646 0.352473646 0.352473646 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_095">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_095.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_095">
+        <color rgba="0.882352352 0.882352352 0.882352352 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_096">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_096.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_096">
+        <color rgba="0.73664695 0.73664695 0.73664695 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_097">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_097.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_097">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_098">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_098.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_098">
+        <color rgba="0.824992537 0.8092402 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_099">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_099.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_099">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_100">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_100.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_100">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_101">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_101.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_101">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_102">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_102.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_102">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_103">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_103.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_103">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_104">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_104.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_104">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_105">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_105.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_105">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_106">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_106.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_106">
+        <color rgba="0.824992537 0.7468624 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_107">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_107.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_107">
+        <color rgba="0.824992537 0.8092402 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_108">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_108.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_108">
+        <color rgba="0.73664695 0.73664695 0.73664695 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_109">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_109.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_109">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_110">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_110.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_110">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_111">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_111.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_111">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_112">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_112.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_112">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_113">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_113.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_113">
+        <color rgba="0.471071124 0.518300533 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_114">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_114.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_114">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_115">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_115.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_115">
+        <color rgba="0.564277 0.488912165 0.206895679 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_116">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_116.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_116">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_117">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_117.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_117">
+        <color rgba="0.9592555 0.842525 0.4061997 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_118">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_118.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_118">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_119">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_119.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_119">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_120">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_120.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_120">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_121">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_121.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_121">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_122">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_122.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_122">
+        <color rgba="0.471071124 0.518300533 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_123">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_123.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_123">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_124">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_124.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_124">
+        <color rgba="0.564277 0.488912165 0.206895679 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_125">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_125.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_125">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_126">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_126.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_126">
+        <color rgba="0.9592555 0.842525 0.4061997 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_127">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_127.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_127">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_128">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_128.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_128">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_129">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_129.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_129">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_130">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_130.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_130">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_131">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_131.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_131">
+        <color rgba="0.471071124 0.518300533 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_132">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_132.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_132">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_133">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_133.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_133">
+        <color rgba="0.564277 0.488912165 0.206895679 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_134">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_134.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_134">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_135">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_135.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_135">
+        <color rgba="0.9592555 0.842525 0.4061997 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_136">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_145.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_145">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_137">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_146.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_146">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_138">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_150.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_150">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_139">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_151.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_151">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_140">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_152.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_152">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_141">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_153.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_153">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_142">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_154.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_154">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_143">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_155.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_155">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_144">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_156.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_156">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_145">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_157.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_157">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_146">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_158.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_158">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_147">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_219.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_219">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_148">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_232.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_232">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_149">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_233.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_233">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_150">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_237.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_237">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_151">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_240.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_240">
+        <color rgba="0.150005162 0.150005162 0.150005162 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_152">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_241.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_241">
+        <color rgba="0.150005162 0.150005162 0.150005162 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_153">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_242.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_242">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_154">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_243.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_243">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_155">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_244.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_244">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_156">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_245.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_245">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_157">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_246.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_246">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_158">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_247.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_247">
+        <color rgba="0.8272109 0.8272109 0.8272109 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_159">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_248.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_248">
+        <color rgba="0.560627759 0.560627759 0.560627759 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_160">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_249.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_249">
+        <color rgba="0.52232945 0.52232945 0.52232945 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_161">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_250.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_250">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_162">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_251.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_251">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_163">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_252.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_252">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_164">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_253.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_253">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_165">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_254.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_254">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_166">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_255.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_255">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_167">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_256.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_256">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_168">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_257.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_257">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_169">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_258.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_258">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_170">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_259.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_259">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_171">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_260.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_260">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_172">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_261.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_261">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_173">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_262.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_262">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_174">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_263.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_263">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_175">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_264.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_264">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_176">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_265.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_265">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_177">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_266.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_266">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_178">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_267.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_267">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_179">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_268.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_268">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_180">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_269.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_269">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_181">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_270.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_270">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_182">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_271.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_271">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_183">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_272.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_272">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_184">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_273.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_273">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_185">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_274.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_274">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_186">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_275.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_275">
+        <color rgba="0.9807934 0.95377 0.829421341 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_187">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_276.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_276">
+        <color rgba="0 0.73664695 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_188">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_277.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_277">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_189">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_278.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_278">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_190">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_279.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_279">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_191">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_280.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_280">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_192">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_281.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_281">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_193">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_282.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_282">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_194">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_283.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_283">
+        <color rgba="0 0.73664695 0 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_195">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_284.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_284">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_196">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_285.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_285">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_197">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_286.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_286">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_198">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_287.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_287">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_199">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_288.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_288">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_200">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_289.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_289">
+        <color rgba="0.853243649 0.853243649 0.853243649 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_201">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_290.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_290">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_202">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_291.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_291">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_203">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_292.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_292">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_204">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_293.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_293">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_205">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_294.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_294">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_206">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_295.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_295">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_207">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_296.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_296">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_208">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_297.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_297">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_209">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_298.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_298">
+        <color rgba="0.797737658 0.741777539 0.6410877 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_210">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_299.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_299">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_211">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_303.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_303">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_212">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_304.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_304">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_213">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_307.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_307">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_214">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_308.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_308">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_215">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_309.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_309">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_216">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_310.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_310">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_217">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_311.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_311">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_218">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_312.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_312">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_219">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_313.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_313">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_220">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_314.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_314">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_221">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_315.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_315">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_222">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_316.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_316">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_223">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_317.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_317">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_224">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_318.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_318">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_225">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_319.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_319">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_226">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_320.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_320">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_227">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_321.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_321">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_228">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_322.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_322">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_229">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_323.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_323">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_230">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_324.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_324">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_231">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_325.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_325">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_232">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_326.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_326">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_233">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_327.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_327">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_234">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_328.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_328">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_235">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_329.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_329">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_236">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_330.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_330">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_237">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_331.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_331">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_238">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_332.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_332">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_239">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_333.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_333">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_240">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_334.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_334">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_241">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_335.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_335">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_242">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_336.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_336">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_243">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_337.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_337">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_244">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_338.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_338">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_245">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_340.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_340">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_246">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_342.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_342">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_247">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_343.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_343">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_248">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_344.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_344">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_249">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_345.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_345">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_250">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_346.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_346">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_251">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_347.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_347">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_252">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_348.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_348">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_253">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_349.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_349">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_254">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_350.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_350">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_255">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_351.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_351">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_256">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_352.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_352">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_257">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_353.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_353">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_258">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_354.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_354">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_259">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_355.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_355">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_260">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_356.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_356">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_261">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_357.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_357">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_262">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_358.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_358">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_263">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_359.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_359">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_264">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_360.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_360">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_265">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_361.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_361">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_266">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_362.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_362">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_267">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_363.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_363">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_268">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_364.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_364">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_269">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_365.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_365">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_270">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_374.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_374">
+        <color rgba="0.471071124 0.518300533 0.790730655 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_271">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_375.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_375">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_272">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_376.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_376">
+        <color rgba="0.5341861 0.5341861 0.5341861 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_273">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_377.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_377">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_274">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_378.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_378">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_275">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_379.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_379">
+        <color rgba="0.5341861 0.5341861 0.5341861 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_276">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_380.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_380">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="base_link_visual_277">
+      <origin xyz="-0 -0 -0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_381.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_381">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <collision name="chassis_collision">
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+      <geometry>
+        <box size="0.26 0.22 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- =================== INDEPENDENT STEERING UNITS ================= -->
+  <link name="front_steer_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.18" />
+      <inertia ixx="0.0003" ixy="0" ixz="0" iyy="0.0003" iyz="0" izz="0.0003" />
+    </inertial>
+    <visual name="front_steer_link_visual_000">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_159.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_159">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_001">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_160.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_160">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_002">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_161.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_161">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_003">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_162.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_162">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_004">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_163.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_163">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_005">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_164.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_164">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_006">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_165.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_165">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_007">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_174.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_174">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_008">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_175.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_175">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_009">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_177.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_177">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_steer_link_visual_010">
+      <origin xyz="-0.1485 -0 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_178.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_178">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="front_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual name="front_wheel_link_visual_000">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_166.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_166">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_001">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_167.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_167">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_002">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_168.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_168">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_003">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_169.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_169">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_004">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_170.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_170">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_005">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_171.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_171">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_006">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_172.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_172">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_007">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_173.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_173">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="front_wheel_link_visual_008">
+      <origin xyz="-0.1502 -0 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_176.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_176">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0 0 0" rpy="0 1.5707963 0" />
+      <geometry>
+        <cylinder radius="0.030" length="0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_left_steer_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.18" />
+      <inertia ixx="0.0003" ixy="0" ixz="0" iyy="0.0003" iyz="0" izz="0.0003" />
+    </inertial>
+    <visual name="rear_left_steer_link_visual_000">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_179.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_179">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_001">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_180.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_180">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_002">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_181.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_181">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_003">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_182.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_182">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_004">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_183.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_183">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_005">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_184.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_184">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_006">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_185.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_185">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_007">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_194.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_194">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_008">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_195.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_195">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_009">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_197.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_197">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_steer_link_visual_010">
+      <origin xyz="0.0315 -0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_198.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_198">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rear_left_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual name="rear_left_wheel_link_visual_000">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_186.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_186">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_001">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_187.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_187">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_002">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_188.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_188">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_003">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_189.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_189">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_004">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_190.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_190">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_005">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_191.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_191">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_006">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_192.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_192">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_007">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_193.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_193">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_left_wheel_link_visual_008">
+      <origin xyz="0.0315 -0.1056 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_196.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_196">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0 0 0" rpy="0 1.5707963 2.0943951" />
+      <geometry>
+        <cylinder radius="0.030" length="0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_right_steer_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.18" />
+      <inertia ixx="0.0003" ixy="0" ixz="0" iyy="0.0003" iyz="0" izz="0.0003" />
+    </inertial>
+    <visual name="rear_right_steer_link_visual_000">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_199.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_199">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_001">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_200.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_200">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_002">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_201.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_201">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_003">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_202.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_202">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_004">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_203.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_203">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_005">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_204.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_204">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_006">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_205.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_205">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_007">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_214.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_214">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_008">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_215.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_215">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_009">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_217.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_217">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_steer_link_visual_010">
+      <origin xyz="0.0315 0.1039 -0.013" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_218.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_218">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="rear_right_wheel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual name="rear_right_wheel_link_visual_000">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_206.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_206">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_001">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_207.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_207">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_002">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_208.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_208">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_003">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_209.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_209">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_004">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_210.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_210">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_005">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_211.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_211">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_006">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_212.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_212">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_007">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_213.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_213">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="rear_right_wheel_link_visual_008">
+      <origin xyz="0.0317 0.1041 -0.005" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_216.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_216">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <collision name="wheel_collision">
+      <origin xyz="0 0 0" rpy="0 1.5707963 -2.0943951" />
+      <geometry>
+        <cylinder radius="0.030" length="0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ======================== CAMERA AND EYES ======================= -->
+  <link name="camera_tilt_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.0004" ixy="0" ixz="0" iyy="0.0004" iyz="0" izz="0.0004" />
+    </inertial>
+    <visual name="camera_tilt_link_visual_000">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_367.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_367">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_001">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_368.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_368">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_002">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_369.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_369">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_003">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_370.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_370">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_004">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_371.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_371">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_005">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_372.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_372">
+        <color rgba="0.625413954 0.625413954 0.625413954 1" />
+      </material>
+    </visual>
+    <visual name="camera_tilt_link_visual_006">
+      <origin xyz="0.115 -0.0605 -0.167" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_373.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_373">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="camera_drive_gear_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="1e-05" ixy="0" ixz="0" iyy="1e-05" iyz="0" izz="1e-05" />
+    </inertial>
+    <visual name="camera_drive_gear_link_visual_000">
+      <origin xyz="0.091946 -0.0609 -0.147803" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_366.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_366">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="right_eye_output_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.04" />
+      <inertia ixx="4e-05" ixy="0" ixz="0" iyy="4e-05" iyz="0" izz="4e-05" />
+    </inertial>
+    <visual name="right_eye_output_link_visual_000">
+      <origin xyz="0.093688 -0.076144 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_300.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_300">
+        <color rgba="0.622217953 0.5569479 0.332180858 1" />
+      </material>
+    </visual>
+    <visual name="right_eye_output_link_visual_001">
+      <origin xyz="0.093688 -0.076144 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_301.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_301">
+        <color rgba="0.9843225 0.9843225 0.979022443 1" />
+      </material>
+    </visual>
+    <visual name="right_eye_output_link_visual_002">
+      <origin xyz="0.093688 -0.076144 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_302.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_302">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="right_eye_output_link_visual_003">
+      <origin xyz="0.093688 -0.076144 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_305.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_305">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="right_eye_drive_gear_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="1e-05" ixy="0" ixz="0" iyy="1e-05" iyz="0" izz="1e-05" />
+    </inertial>
+    <visual name="right_eye_drive_gear_link_visual_000">
+      <origin xyz="0.076945 -0.097398 -0.084" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_306.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_306">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="left_eye_output_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.04" />
+      <inertia ixx="4e-05" ixy="0" ixz="0" iyy="4e-05" iyz="0" izz="4e-05" />
+    </inertial>
+    <visual name="left_eye_output_link_visual_000">
+      <origin xyz="0.093686 0.07615 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_234.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_234">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="left_eye_output_link_visual_001">
+      <origin xyz="0.093686 0.07615 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_235.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_235">
+        <color rgba="0.622217953 0.5569479 0.332180858 1" />
+      </material>
+    </visual>
+    <visual name="left_eye_output_link_visual_002">
+      <origin xyz="0.093686 0.07615 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_236.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_236">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+    <visual name="left_eye_output_link_visual_003">
+      <origin xyz="0.093686 0.07615 -0.048" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_238.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_238">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="left_eye_drive_gear_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="1e-05" ixy="0" ixz="0" iyy="1e-05" iyz="0" izz="1e-05" />
+    </inertial>
+    <visual name="left_eye_drive_gear_link_visual_000">
+      <origin xyz="0.076942 0.097403 -0.084" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_239.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_239">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <!-- ================== CLUB, CATCH AND RAIL BEARINGS =============== -->
+  <link name="right_club_spring_reel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="2e-06" ixy="0" ixz="0" iyy="2e-06" iyz="0" izz="2e-06" />
+    </inertial>
+    <visual name="right_club_spring_reel_link_visual_000">
+      <origin xyz="0.105 -0.04 -0.045" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_341.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_341">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="left_club_spring_reel_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="2e-06" ixy="0" ixz="0" iyy="2e-06" iyz="0" izz="2e-06" />
+    </inertial>
+    <visual name="left_club_spring_reel_link_visual_000">
+      <origin xyz="0.105 0.04 -0.045" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_339.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_339">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_club_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.3" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual name="tongue_club_link_visual_000">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_136.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_136">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="tongue_club_link_visual_001">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_137.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_137">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="tongue_club_link_visual_002">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_138.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_138">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="tongue_club_link_visual_003">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_147.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_147">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="tongue_club_link_visual_004">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_148.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_148">
+        <color rgba="0.8904402 0.493246078 0.427470654 1" />
+      </material>
+    </visual>
+    <visual name="tongue_club_link_visual_005">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_149.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_149">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <collision name="simplified_collision">
+      <origin xyz="-0.068 0 -0.214" rpy="0 0 0" />
+      <geometry>
+        <box size="0.065 0.078 0.048" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="catch_carriage_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.35" />
+      <inertia ixx="0.0015" ixy="0" ixz="0" iyy="0.0015" iyz="0" izz="0.0015" />
+    </inertial>
+    <visual name="catch_carriage_link_visual_000">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_220.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_220">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="catch_carriage_link_visual_001">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_221.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_221">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="catch_carriage_link_visual_002">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_222.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_222">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <visual name="catch_carriage_link_visual_003">
+      <origin xyz="0.065574 -0 -0.226767" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_229.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_229">
+        <color rgba="0.345868856 0.345868856 0.345868856 1" />
+      </material>
+    </visual>
+    <collision name="simplified_collision">
+      <origin xyz="0.211 0 -0.063" rpy="0 0 0" />
+      <geometry>
+        <box size="0.085 0.077 0.07" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="catch_claw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.04" />
+      <inertia ixx="3e-05" ixy="0" ixz="0" iyy="3e-05" iyz="0" izz="3e-05" />
+    </inertial>
+    <visual name="catch_claw_link_visual_000">
+      <origin xyz="-0.138841 -0 -0.175065" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_230.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_230">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <visual name="catch_claw_link_visual_001">
+      <origin xyz="-0.138841 -0 -0.175065" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_231.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_231">
+        <color rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision name="simplified_collision">
+      <origin xyz="0 0 -0.025" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 0.014 0.065" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="tongue_bearing_0_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_0_link_visual_000">
+      <origin xyz="0.125158 -0.0365 -0.027713" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_139.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_139">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_bearing_1_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_1_link_visual_000">
+      <origin xyz="0.119552 -0.0365 -0.000171" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_140.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_140">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_bearing_2_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_2_link_visual_000">
+      <origin xyz="0.143711 -0.0365 -0.0066" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_141.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_141">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_bearing_3_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_3_link_visual_000">
+      <origin xyz="0.125158 0.0365 -0.027713" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_142.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_142">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_bearing_4_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_4_link_visual_000">
+      <origin xyz="0.119552 0.0365 -0.000171" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_143.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_143">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="tongue_bearing_5_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="tongue_bearing_5_link_visual_000">
+      <origin xyz="0.143711 0.0365 -0.0066" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_144.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_144">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_0_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_0_link_visual_000">
+      <origin xyz="-0.134315 -0.0365 -0.169688" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_223.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_223">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_1_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_1_link_visual_000">
+      <origin xyz="-0.1621 -0.0365 -0.173929" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_224.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_224">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_2_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_2_link_visual_000">
+      <origin xyz="-0.154488 -0.0365 -0.150116" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_225.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_225">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_3_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_3_link_visual_000">
+      <origin xyz="-0.134315 0.0365 -0.169688" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_226.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_226">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_4_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_4_link_visual_000">
+      <origin xyz="-0.1621 0.0365 -0.173929" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_227.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_227">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="catch_bearing_5_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004" />
+      <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+    </inertial>
+    <visual name="catch_bearing_5_link_visual_000">
+      <origin xyz="-0.154488 0.0365 -0.150116" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/part_228.obj" scale="1 1 1" />
+      </geometry>
+      <material name="material_part_228">
+        <color rgba="0.813781738 0.813781738 0.813781738 1" />
+      </material>
+    </visual>
+  </link>
+  <!-- ======================== DRIVE JOINTS ========================== -->
+  <joint name="front_steer_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="front_steer_link" />
+    <origin xyz="0.1485 0 0.013" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0.35" velocity="5" lower="-1.5708" upper="1.5708" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="front_wheel_joint" type="continuous">
+    <parent link="front_steer_link" />
+    <child link="front_wheel_link" />
+    <origin xyz="0.0017 0 -0.008" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit effort="0.4" velocity="6" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="rear_left_steer_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="rear_left_steer_link" />
+    <origin xyz="-0.0315 0.1039 0.013" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0.35" velocity="5" lower="-1.5708" upper="1.5708" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="rear_left_steer_link" />
+    <child link="rear_left_wheel_link" />
+    <origin xyz="0 0.0017 -0.008" rpy="0 0 0" />
+    <axis xyz="-0.5 0.8660254 0" />
+    <limit effort="0.4" velocity="6" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="rear_right_steer_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="rear_right_steer_link" />
+    <origin xyz="-0.0315 -0.1039 0.013" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="0.35" velocity="5" lower="-1.5708" upper="1.5708" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="rear_right_steer_link" />
+    <child link="rear_right_wheel_link" />
+    <origin xyz="-0.0002 -0.0002 -0.008" rpy="0 0 0" />
+    <axis xyz="-0.5 -0.8660254 0" />
+    <limit effort="0.4" velocity="6" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <!-- =================== CAMERA AND EYE JOINTS ====================== -->
+  <joint name="camera_tilt_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="camera_tilt_link" />
+    <origin xyz="-0.115 0.0605 0.167" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.2" velocity="4" lower="-1.2" upper="1.2" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="camera_drive_gear_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="camera_drive_gear_link" />
+    <origin xyz="-0.091946 0.0609 0.147803" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.2" velocity="4" lower="-1.2" upper="1.2" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="right_eye_output_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="right_eye_output_link" />
+    <origin xyz="-0.093688 0.076144 0.048" rpy="0 0 0" />
+    <axis xyz="0.875 -0.4841 0" />
+    <limit effort="0.2" velocity="4" lower="-0.7" upper="0.7" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="right_eye_drive_gear_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="right_eye_drive_gear_link" />
+    <origin xyz="-0.076945 0.097398 0.084" rpy="0 0 0" />
+    <axis xyz="0.875 -0.4841 0" />
+    <limit effort="0.2" velocity="6" lower="-1.5" upper="1.5" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="left_eye_output_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="left_eye_output_link" />
+    <origin xyz="-0.093686 -0.07615 0.048" rpy="0 0 0" />
+    <axis xyz="0.875 0.4841 0" />
+    <limit effort="0.2" velocity="4" lower="-0.7" upper="0.7" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="left_eye_drive_gear_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="left_eye_drive_gear_link" />
+    <origin xyz="-0.076942 -0.097403 0.084" rpy="0 0 0" />
+    <axis xyz="0.875 0.4841 0" />
+    <limit effort="0.2" velocity="6" lower="-1.5" upper="1.5" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <!-- ================= CLUB AND CATCH JOINTS ======================== -->
+  <joint name="right_club_spring_reel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="right_club_spring_reel_link" />
+    <origin xyz="-0.105 0.04 0.045" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.1" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="left_club_spring_reel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="left_club_spring_reel_link" />
+    <origin xyz="-0.105 -0.04 0.045" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.1" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_club_track_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="tongue_club_link" />
+    <origin xyz="-0.065574 0 0.226767" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="8" velocity="3" lower="-1.5" upper="0" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_carriage_track_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="catch_carriage_link" />
+    <origin xyz="-0.065574 0 0.226767" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="4" velocity="1.5" lower="-0.15" upper="1.65" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_claw_release_joint" type="revolute">
+    <parent link="catch_carriage_link" />
+    <child link="catch_claw_link" />
+    <origin xyz="0.204415 0 -0.051702" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.2" velocity="5" lower="0" upper="1" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_0_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_0_link" />
+    <origin xyz="-0.059584 0.0365 -0.199054" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_1_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_1_link" />
+    <origin xyz="-0.053978 0.0365 -0.226596" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_2_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_2_link" />
+    <origin xyz="-0.078137 0.0365 -0.220167" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_3_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_3_link" />
+    <origin xyz="-0.059584 -0.0365 -0.199054" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_4_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_4_link" />
+    <origin xyz="-0.053978 -0.0365 -0.226596" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="tongue_bearing_5_joint" type="continuous">
+    <parent link="tongue_club_link" />
+    <child link="tongue_bearing_5_link" />
+    <origin xyz="-0.078137 -0.0365 -0.220167" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_0_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_0_link" />
+    <origin xyz="0.199889 0.0365 -0.057079" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_1_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_1_link" />
+    <origin xyz="0.227674 0.0365 -0.052838" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_2_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_2_link" />
+    <origin xyz="0.220062 0.0365 -0.076651" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_3_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_3_link" />
+    <origin xyz="0.199889 -0.0365 -0.057079" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_4_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_4_link" />
+    <origin xyz="0.227674 -0.0365 -0.052838" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+  <joint name="catch_bearing_5_joint" type="continuous">
+    <parent link="catch_carriage_link" />
+    <child link="catch_bearing_5_link" />
+    <origin xyz="0.220062 -0.0365 -0.076651" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="0.03" velocity="20" />
+    <dynamics damping="0.1" friction="0.02" />
+  </joint>
+</robot>
