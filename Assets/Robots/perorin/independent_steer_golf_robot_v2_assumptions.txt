@@ -1,0 +1,40 @@
+Independent-steer golf robot: first simulation URDF
+
+Physical links: 27 (Unity ArticulationBody limit: 64)
+Visual mesh parts retained: 382
+Coordinates: ROS X forward, Y left, Z up; metres.
+Three MG92B steering joints are modeled as +/-90 degree revolute joints.
+Three MG90D drive joints are modeled as continuous wheel-output joints.
+The 20:40 spur gear pair is a 2.0:1 reduction; implement this in the Unity drive controller.
+Eye output pieces and their drive gears are separate links; servo bodies remain fixed to base_link.
+The curved tongue/catch rail uses a circular fit to part_334, with separate rolling bearing links.
+Mass, inertia, effort, velocity, limits, friction, and collision primitives are safe placeholders pending measurements.
+
+Mesh assignment counts:
+base_link: 281
+front_steer_link: 11
+front_wheel_link: 9
+rear_left_steer_link: 11
+rear_left_wheel_link: 9
+rear_right_steer_link: 11
+rear_right_wheel_link: 9
+camera_tilt_link: 7
+right_eye_output_link: 4
+right_eye_drive_gear_link: 1
+left_eye_output_link: 4
+left_eye_drive_gear_link: 1
+tongue_club_link: 6
+catch_carriage_link: 4
+catch_claw_link: 2
+tongue_bearing_0_link: 1
+tongue_bearing_1_link: 1
+tongue_bearing_2_link: 1
+tongue_bearing_3_link: 1
+tongue_bearing_4_link: 1
+tongue_bearing_5_link: 1
+catch_bearing_0_link: 1
+catch_bearing_1_link: 1
+catch_bearing_2_link: 1
+catch_bearing_3_link: 1
+catch_bearing_4_link: 1
+catch_bearing_5_link: 1

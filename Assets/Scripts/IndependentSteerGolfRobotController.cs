@@ -10,10 +10,10 @@ using UnityEngine.InputSystem;
 public class IndependentSteerGolfRobotController : MonoBehaviour
 {
     [Header("走行")]
-    [SerializeField] private float maximumLinearSpeed = 0.6f;
-    [SerializeField] private float maximumYawSpeed = 1.5f;
-    [SerializeField] private float linearAcceleration = 1.2f;
-    [SerializeField] private float yawAcceleration = 3f;
+    [SerializeField] private float maximumLinearSpeed = 0.09f;
+    [SerializeField] private float maximumYawSpeed = 0.7f;
+    [SerializeField] private float linearAcceleration = 0.25f;
+    [SerializeField] private float yawAcceleration = 1.5f;
     [SerializeField] private float wheelRadius = 0.03f;
     [Tooltip("モデル正面とUnityの青いZ軸が異なる場合に調整します。")]
     [SerializeField] private float forwardYawOffsetDegrees;
@@ -25,22 +25,39 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     [SerializeField] private float wheelDamping = 5f;
     [Tooltip("20:40歯車後の車輪側駆動力として調整します。")]
     [SerializeField] private float wheelForceLimit = 10f;
-    [SerializeField] private float maximumWheelSpeedDegrees = 350f;
+    [Tooltip("20:40減速後の目視確認用上限。180 deg/s = 30 rpmです。")]
+    [SerializeField] private float maximumWheelSpeedDegrees = 180f;
 
     [Header("カメラ・目")]
     [SerializeField] private float cameraSpeedDegrees = 60f;
     [SerializeField] private float cameraLimitDegrees = 80f;
-    [SerializeField] private float eyeSpeedDegrees = 90f;
-    [SerializeField] private float eyeLimitDegrees = 65f;
+    [Tooltip("カメラ歯車は1:1なので通常は1です。")]
+    [SerializeField] private float cameraDriveGearRatio = 1f;
+    [SerializeField] private float eyeSpeedDegrees = 45f;
+    [SerializeField] private float eyeLimitDegrees = 30f;
+    [Tooltip("サーボ側歯車角 / 目側歯車角。歯数が判明したら設定します。")]
+    [SerializeField] private float eyeDriveGearRatio = 1f;
 
     [Header("クラブ動作（曲線レールの近似角度）")]
-    [Tooltip("定荷重ばねによってクラブが引かれる、前側の位置です。")]
-    [SerializeField] private float clubFrontDegrees = 110f;
-    [Tooltip("ワイヤを緩め、キャッチが自重で降りてクラブに掛かる位置です。")]
-    [SerializeField] private float catchPositionDegrees = 100f;
-    [Tooltip("ワイヤを最大まで巻き取った位置です。")]
-    [SerializeField] private float maximumPulledBackDegrees = -105f;
+    [Tooltip("クラブの前端位置。part_334から求めた円弧上の初期姿勢です。")]
+    [SerializeField] private float clubFrontDegrees = 0f;
+    [Tooltip("キャッチを保管する円弧上端です。")]
+    [SerializeField] private float catchStoredDegrees = 0f;
+    [Tooltip("キャッチが自重で下降してクラブに掛かる位置です。")]
+    [SerializeField] private float catchAtClubDegrees = 90f;
+    [Tooltip("クラブを前端から引き上げる最大角度です。")]
+    [SerializeField] private float maximumPullDegrees = -75f;
     [SerializeField] private float clawOpenDegrees = 50f;
+    [SerializeField] private float railRadius = 0.221f;
+    [SerializeField] private float bearingRadius = 0.005f;
+    [Header("定荷重ばね（左右2本）")]
+    [Tooltip("ばね1本がクラブをレール接線方向へ引く力です。実測値があれば置き換えてください。")]
+    [SerializeField] private float constantForcePerSpringNewtons = 3f;
+    [Tooltip("一定力を作る速度ドライブの目標速度です。実速度は力上限で決まります。")]
+    [SerializeField] private float springReturnVelocityDegrees = 360f;
+    [SerializeField] private float springDriveDamping = 4f;
+    [Tooltip("base_link_visual_245/247 のばね巻取り半径です。")]
+    [SerializeField] private float springReelRadius = 0.01f;
     [Range(0.15f, 1f)]
     [SerializeField] private float strikeStrength = 0.7f;
 
@@ -50,14 +67,22 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
 
     [Header("表示")]
     [SerializeField] private bool showOperationGuide = true;
+    [SerializeField, HideInInspector] private int configurationVersion;
 
     private ArticulationBody rootBody;
     private ArticulationBody cameraTilt;
-    private ArticulationBody leftEye;
-    private ArticulationBody rightEye;
+    private ArticulationBody cameraDriveGear;
+    private ArticulationBody leftEyeOutput;
+    private ArticulationBody leftEyeDriveGear;
+    private ArticulationBody rightEyeOutput;
+    private ArticulationBody rightEyeDriveGear;
+    private ArticulationBody rightClubSpringReel;
+    private ArticulationBody leftClubSpringReel;
     private ArticulationBody tongueClub;
     private ArticulationBody catchCarriage;
     private ArticulationBody catchClaw;
+    private readonly List<ArticulationBody> tongueBearings = new List<ArticulationBody>();
+    private readonly List<ArticulationBody> catchBearings = new List<ArticulationBody>();
 
     private readonly List<WheelModule> wheelModules = new List<WheelModule>();
 
@@ -78,10 +103,17 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         public ArticulationBody Wheel;
         public float LastSteeringTarget;
         public float WheelDirection = 1f;
+        public float SteeringOffsetDegrees;
+    }
+
+    private void OnValidate()
+    {
+        UpgradeSerializedSettings();
     }
 
     private void Awake()
     {
+        UpgradeSerializedSettings();
         DisableConflictingControllers();
         initialized = FindRobotBodies();
 
@@ -93,6 +125,33 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
 
         ConfigureRobotDrives();
         ResetMechanismsImmediately();
+    }
+
+    private void UpgradeSerializedSettings()
+    {
+        // Unity keeps values serialized by older component versions. Version 5
+        // adds the two constant-force springs and their visible winding reels.
+        if (configurationVersion >= 5)
+            return;
+
+        maximumLinearSpeed = 0.09f;
+        maximumYawSpeed = 0.7f;
+        linearAcceleration = 0.25f;
+        yawAcceleration = 1.5f;
+        maximumWheelSpeedDegrees = 180f;
+        eyeSpeedDegrees = 45f;
+        eyeLimitDegrees = 30f;
+        clubFrontDegrees = 0f;
+        catchStoredDegrees = 0f;
+        catchAtClubDegrees = 90f;
+        maximumPullDegrees = -75f;
+        railRadius = 0.221f;
+        bearingRadius = 0.005f;
+        constantForcePerSpringNewtons = 3f;
+        springReturnVelocityDegrees = 360f;
+        springDriveDamping = 4f;
+        springReelRadius = 0.01f;
+        configurationVersion = 5;
     }
 
     private void Update()
@@ -107,8 +166,9 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         // Imported model orientation: its visual front is opposite Unity local +Z.
         if (keyboard.wKey.isPressed) translationInput.y -= 1f;
         if (keyboard.sKey.isPressed) translationInput.y += 1f;
-        if (keyboard.dKey.isPressed) translationInput.x += 1f;
-        if (keyboard.aKey.isPressed) translationInput.x -= 1f;
+        // The CAD model's lateral axis is opposite Unity local X.
+        if (keyboard.dKey.isPressed) translationInput.x -= 1f;
+        if (keyboard.aKey.isPressed) translationInput.x += 1f;
         if (keyboard.eKey.isPressed) yawInput += 1f;
         if (keyboard.qKey.isPressed) yawInput -= 1f;
 
@@ -131,8 +191,11 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
             eyeLimitDegrees);
 
         SetPositionTarget(cameraTilt, cameraTarget);
-        SetPositionTarget(leftEye, eyeTarget);
-        SetPositionTarget(rightEye, eyeTarget);
+        SetPositionTarget(cameraDriveGear, -cameraTarget * cameraDriveGearRatio);
+        SetPositionTarget(leftEyeOutput, eyeTarget);
+        SetPositionTarget(rightEyeOutput, eyeTarget);
+        SetPositionTarget(leftEyeDriveGear, -eyeTarget * eyeDriveGearRatio);
+        SetPositionTarget(rightEyeDriveGear, -eyeTarget * eyeDriveGearRatio);
 
         if (keyboard.spaceKey.wasPressedThisFrame && clubRoutine == null)
             clubRoutine = StartCoroutine(PlayClubSequence());
@@ -171,10 +234,10 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
             yawInput * maximumYawSpeed,
             yawAcceleration * Time.fixedDeltaTime);
 
-        // A constant-force spring is approximated by continuously commanding
-        // the club toward the front end whenever the claw is not holding it.
-        if (!clubIsCaptured)
-            SetPositionTarget(tongueClub, clubFrontDegrees);
+        float clubDegrees = ReadJointDegrees(tongueClub);
+        UpdateBearingTargets(tongueBearings, clubDegrees);
+        UpdateBearingTargets(catchBearings, ReadJointDegrees(catchCarriage));
+        UpdateSpringReelTargets(clubDegrees);
 
         potentiometerValue = ReadPotentiometerValue();
 
@@ -192,16 +255,32 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
                 rootBody = body;
         }
 
-        AddWheelModule(bodies, "front_steer_link", "front_wheel_link");
-        AddWheelModule(bodies, "rear_left_steer_link", "rear_left_wheel_link");
-        AddWheelModule(bodies, "rear_right_steer_link", "rear_right_wheel_link");
+        // CAD link names describe the old assumed layout. On the actual robot,
+        // front_wheel_link is the central rear wheel, while rear_left/right are
+        // the two front wheels. Their mounting-angle signs are therefore opposite.
+        AddWheelModule(bodies, "front_steer_link", "front_wheel_link", 90f);
+        AddWheelModule(bodies, "rear_left_steer_link", "rear_left_wheel_link", -30f);
+        AddWheelModule(bodies, "rear_right_steer_link", "rear_right_wheel_link", 30f);
 
         bodies.TryGetValue("camera_tilt_link", out cameraTilt);
-        bodies.TryGetValue("left_eye_link", out leftEye);
-        bodies.TryGetValue("right_eye_link", out rightEye);
+        bodies.TryGetValue("camera_drive_gear_link", out cameraDriveGear);
+        bodies.TryGetValue("left_eye_output_link", out leftEyeOutput);
+        bodies.TryGetValue("left_eye_drive_gear_link", out leftEyeDriveGear);
+        bodies.TryGetValue("right_eye_output_link", out rightEyeOutput);
+        bodies.TryGetValue("right_eye_drive_gear_link", out rightEyeDriveGear);
+        bodies.TryGetValue("right_club_spring_reel_link", out rightClubSpringReel);
+        bodies.TryGetValue("left_club_spring_reel_link", out leftClubSpringReel);
         bodies.TryGetValue("tongue_club_link", out tongueClub);
         bodies.TryGetValue("catch_carriage_link", out catchCarriage);
         bodies.TryGetValue("catch_claw_link", out catchClaw);
+
+        for (int index = 0; index < 6; index++)
+        {
+            if (bodies.TryGetValue($"tongue_bearing_{index}_link", out ArticulationBody tongueBearing))
+                tongueBearings.Add(tongueBearing);
+            if (bodies.TryGetValue($"catch_bearing_{index}_link", out ArticulationBody catchBearing))
+                catchBearings.Add(catchBearing);
+        }
 
         if (rootBody == null || wheelModules.Count != 3)
         {
@@ -218,7 +297,8 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
     private void AddWheelModule(
         Dictionary<string, ArticulationBody> bodies,
         string steeringName,
-        string wheelName)
+        string wheelName,
+        float steeringOffsetDegrees)
     {
         if (!bodies.TryGetValue(steeringName, out ArticulationBody steering) ||
             !bodies.TryGetValue(wheelName, out ArticulationBody wheel))
@@ -231,7 +311,8 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         {
             Steering = steering,
             Wheel = wheel,
-            LastSteeringTarget = 0f
+            LastSteeringTarget = 0f,
+            SteeringOffsetDegrees = steeringOffsetDegrees
         });
     }
 
@@ -253,11 +334,21 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         }
 
         ConfigurePositionDrive(cameraTilt, 80f, 10f, 5f);
-        ConfigurePositionDrive(leftEye, 60f, 8f, 3f);
-        ConfigurePositionDrive(rightEye, 60f, 8f, 3f);
-        ConfigurePositionDrive(tongueClub, 420f, 24f, 45f);
+        ConfigurePositionDrive(cameraDriveGear, 40f, 6f, 2f);
+        ConfigurePositionDrive(leftEyeOutput, 60f, 8f, 3f);
+        ConfigurePositionDrive(rightEyeOutput, 60f, 8f, 3f);
+        ConfigurePositionDrive(leftEyeDriveGear, 30f, 5f, 1f);
+        ConfigurePositionDrive(rightEyeDriveGear, 30f, 5f, 1f);
+        ConfigurePositionDrive(rightClubSpringReel, 20f, 2f, 0.10f);
+        ConfigurePositionDrive(leftClubSpringReel, 20f, 2f, 0.10f);
+        ConfigureClubSpringDrive();
         ConfigurePositionDrive(catchCarriage, 150f, 18f, 20f);
         ConfigurePositionDrive(catchClaw, 80f, 8f, 5f);
+
+        foreach (ArticulationBody bearing in tongueBearings)
+            ConfigurePositionDrive(bearing, 8f, 1f, 0.08f);
+        foreach (ArticulationBody bearing in catchBearings)
+            ConfigurePositionDrive(bearing, 8f, 1f, 0.08f);
     }
 
     private static void ConfigurePositionDrive(
@@ -273,7 +364,32 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         drive.stiffness = stiffness;
         drive.damping = damping;
         drive.forceLimit = forceLimit;
+        drive.targetVelocity = 0f;
         body.xDrive = drive;
+    }
+
+    private void ConfigureClubSpringDrive()
+    {
+        if (tongueClub == null)
+            return;
+
+        // The two spring forces act tangentially to the circular rail. Their
+        // combined linear force therefore becomes an almost constant torque.
+        float constantTorque =
+            2f * Mathf.Max(0f, constantForcePerSpringNewtons) * Mathf.Max(railRadius, 0.001f);
+        ArticulationDrive drive = tongueClub.xDrive;
+        drive.stiffness = 0f;
+        drive.damping = Mathf.Max(0.01f, springDriveDamping);
+        drive.forceLimit = Mathf.Max(0.01f, constantTorque);
+        drive.target = clubFrontDegrees;
+        drive.targetVelocity = Mathf.Abs(springReturnVelocityDegrees);
+        tongueClub.xDrive = drive;
+        tongueClub.WakeUp();
+    }
+
+    private void ConfigureClubPullDrive()
+    {
+        ConfigurePositionDrive(tongueClub, 420f, 24f, 45f);
     }
 
     private void DriveWheelModules(Vector2 translation, float yawSpeed)
@@ -292,7 +408,9 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
 
             if (hasCommand && moduleVelocity.sqrMagnitude > 0.0001f)
             {
-                float requestedAngle = Mathf.Atan2(moduleVelocity.x, moduleVelocity.y) * Mathf.Rad2Deg;
+                float requestedAngle =
+                    Mathf.Atan2(moduleVelocity.x, moduleVelocity.y) * Mathf.Rad2Deg +
+                    module.SteeringOffsetDegrees;
                 requestedAngle = OptimizeSteeringAngle(
                     requestedAngle,
                     module.LastSteeringTarget,
@@ -361,23 +479,17 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         // 1. Pay out the wire. The carriage runs down the curved frame under
         // its own weight. The free-moving claw rides over the club and latches.
         SetPositionTarget(catchClaw, 0f);
-        SetPositionTarget(catchCarriage, catchPositionDegrees);
-        yield return new WaitForSeconds(1.1f);
-
-        SetPositionTarget(catchClaw, clawOpenDegrees * 0.35f);
-        yield return new WaitForSeconds(0.12f);
-        SetPositionTarget(catchClaw, 0f);
-        yield return new WaitForSeconds(0.18f);
+        SetPositionTarget(catchCarriage, catchAtClubDegrees);
+        yield return new WaitForSeconds(1.4f);
         clubIsCaptured = true;
+        ConfigureClubPullDrive();
 
         // 2. Wind the wire. The 1:1 potentiometer follows this winding angle.
         // Pull-back distance determines the striking strength.
-        float pullTarget = Mathf.Lerp(
-            catchPositionDegrees,
-            maximumPulledBackDegrees,
-            strikeStrength);
-        SetPositionTarget(catchCarriage, pullTarget);
-        SetPositionTarget(tongueClub, pullTarget);
+        float clubPullTarget = clubFrontDegrees + maximumPullDegrees * strikeStrength;
+        float catchPullTarget = catchAtClubDegrees + maximumPullDegrees * strikeStrength;
+        SetPositionTarget(catchCarriage, catchPullTarget);
+        SetPositionTarget(tongueClub, clubPullTarget);
         yield return new WaitForSeconds(Mathf.Lerp(0.7f, 1.8f, strikeStrength));
 
         // 3. Open only the claw. The catch remains held by the wire, while the
@@ -385,7 +497,7 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         SetPositionTarget(catchClaw, clawOpenDegrees);
         yield return new WaitForSeconds(0.12f);
         clubIsCaptured = false;
-        SetPositionTarget(tongueClub, clubFrontDegrees);
+        ConfigureClubSpringDrive();
         yield return new WaitForSeconds(0.65f);
 
         // 4. Close the release servo. The catch stays at the pulled-back
@@ -399,28 +511,56 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         cameraTarget = 0f;
         eyeTarget = 0f;
         SetPositionTarget(cameraTilt, 0f);
-        SetPositionTarget(leftEye, 0f);
-        SetPositionTarget(rightEye, 0f);
+        SetPositionTarget(cameraDriveGear, 0f);
+        SetPositionTarget(leftEyeOutput, 0f);
+        SetPositionTarget(rightEyeOutput, 0f);
+        SetPositionTarget(leftEyeDriveGear, 0f);
+        SetPositionTarget(rightEyeDriveGear, 0f);
         clubIsCaptured = false;
-        SetPositionTarget(tongueClub, clubFrontDegrees);
-        SetPositionTarget(catchCarriage, maximumPulledBackDegrees);
+        ConfigureClubSpringDrive();
+        SetPositionTarget(catchCarriage, catchStoredDegrees);
         SetPositionTarget(catchClaw, 0f);
         potentiometerValue = potentiometerMaximum;
     }
 
     private float ReadPotentiometerValue()
     {
-        float carriageDegrees = maximumPulledBackDegrees;
-
-        if (catchCarriage != null && catchCarriage.jointPosition.dofCount > 0)
-            carriageDegrees = catchCarriage.jointPosition[0] * Mathf.Rad2Deg;
+        float carriageDegrees = ReadJointDegrees(catchCarriage);
 
         float winding01 = Mathf.InverseLerp(
-            catchPositionDegrees,
-            maximumPulledBackDegrees,
+            catchAtClubDegrees,
+            catchStoredDegrees,
             carriageDegrees);
 
         return Mathf.Lerp(potentiometerMinimum, potentiometerMaximum, winding01);
+    }
+
+    private static float ReadJointDegrees(ArticulationBody body)
+    {
+        if (body == null || body.jointPosition.dofCount == 0)
+            return 0f;
+
+        return body.jointPosition[0] * Mathf.Rad2Deg;
+    }
+
+    private void UpdateBearingTargets(List<ArticulationBody> bearings, float carrierDegrees)
+    {
+        float rollingRatio = railRadius / Mathf.Max(bearingRadius, 0.001f);
+        float bearingDegrees = -carrierDegrees * rollingRatio;
+
+        foreach (ArticulationBody bearing in bearings)
+            SetPositionTarget(bearing, bearingDegrees);
+    }
+
+    private void UpdateSpringReelTargets(float clubDegrees)
+    {
+        float windingRatio = railRadius / Mathf.Max(springReelRadius, 0.001f);
+        float reelDegrees = -(clubDegrees - clubFrontDegrees) * windingRatio;
+
+        // The two reels are mirrored, so their visible winding directions are
+        // opposite although both springs pull the club toward the front.
+        SetPositionTarget(rightClubSpringReel, reelDegrees);
+        SetPositionTarget(leftClubSpringReel, -reelDegrees);
     }
 
     private static void SetPositionTarget(ArticulationBody body, float degrees)
@@ -467,10 +607,13 @@ public class IndependentSteerGolfRobotController : MonoBehaviour
         if (!showOperationGuide)
             return;
 
+        float targetWinding = Mathf.Clamp01(
+            Mathf.Abs(maximumPullDegrees) * strikeStrength /
+            Mathf.Max(Mathf.Abs(catchStoredDegrees - catchAtClubDegrees), 0.001f));
         int targetPotentiometer = Mathf.RoundToInt(Mathf.Lerp(
             potentiometerMinimum,
             potentiometerMaximum,
-            strikeStrength));
+            targetWinding));
 
         string guide =
             "独立ステア・ゴルフロボット\n" +
