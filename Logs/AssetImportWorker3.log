@@ -1,0 +1,1759 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.24f1 (4e7b9b5b6244) revision 5143451'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'ja' Physical Memory: 32661 MB
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Ryoga" at "2026-09-13T15:31:10.1961433Z"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-13T15:31:10Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 2032, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              53115945c95d48a6916ed931b7f0b3f2
+  Correlation Id:          5cd4be776f5fa1073434178682ddf08a
+  External correlation Id: 3209453608937392865
+  Machine Id:              XTpCx8I/3MDQd1zfbb3tS/9gqlE=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Ryoga" (connect: 0.00s, validation: 0.00s, handshake: 0.04s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Ryoga-notifications" at "2026-09-13T15:31:10.2427119Z"
+[Licensing::Module] Licensing Background thread has ended after 0.05s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.24f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/Ryoga/UnityProjects/RoboconYamanashiSim
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+59176
+-parentPid
+20040
+-analyticsCloudUserId
+15669596257710
+-analyticsCloudProjectId
+d5df8a1d-559c-4662-8385-623af40fbc3a
+-analyticsLocalProjectId
+bd4ca7cf48b1baf40ae4737a4155202a
+-editorAnalyticsEnabled
+1
+-cbmEditorLicense
+02652e5e79b1e60ead56627423232b0070d18552
+-cbmMachineId
+XTpCx8I/3MDQd1zfbb3tS/9gqlE=
+-licensingIpc
+LicenseClient-Ryoga
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/Ryoga/UnityProjects/RoboconYamanashiSim
+C:/Users/Ryoga/UnityProjects/RoboconYamanashiSim
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [30064]  Target information:
+
+Player connection [30064]  * "[IP] 192.168.0.2 [Port] 0 [Flags] 2 [Guid] 2659589022 [EditorId] 2659589022 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CSBRA07) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [30064] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [30064] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 12.51 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 1.82 ms.
+Initialize engine version: 6000.3.24f1 (4e7b9b5b6244)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.24f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Ryoga/UnityProjects/RoboconYamanashiSim/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 4060 (ID=0x2882)
+    Vendor:          NVIDIA
+    VRAM:            7957 MB
+    App VRAM Budget: 7189 MB
+    Driver:          32.0.15.8157
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.24f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.24f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002486 seconds.
+- Loaded All Assemblies, in  0.550 seconds
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.573 seconds
+Domain Reload Profiling: 1119ms
+	BeginReloadAssembly (180ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (241ms)
+		LoadAssemblies (176ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (236ms)
+			TypeCache.Refresh (234ms)
+				TypeCache.ScanAssembly (216ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (574ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (502ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (117ms)
+			ProcessInitializeOnLoadAttributes (210ms)
+			ProcessInitializeOnLoadMethodAttributes (110ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 15669596257710-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.307 seconds
+Refreshing native plugins compatible for Editor in 4.45 ms, found 7 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Refreshing native plugins compatible for Editor in 5.26 ms, found 7 plugins.
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.645 seconds
+Domain Reload Profiling: 2943ms
+	BeginReloadAssembly (185ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (83ms)
+	LoadAllAssembliesAndSetupDomain (980ms)
+		LoadAssemblies (590ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (496ms)
+			TypeCache.Refresh (412ms)
+				TypeCache.ScanAssembly (389ms)
+			BuildScriptInfoCaches (74ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1646ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1526ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (205ms)
+			ProcessInitializeOnLoadAttributes (1001ms)
+			ProcessInitializeOnLoadMethodAttributes (305ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 4.81 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 43 Unused Serialized files (Serialized files now loaded: 0)
+Curl error 3: URL rejected: Malformed input to a URL function
+Unloading 8703 unused Assets / (19.4 MB). Loaded Objects now: 9294.
+Memory consumption went from 187.9 MB to 168.5 MB.
+Total: 23.274400 ms (FindLiveObjects: 0.938000 ms CreateObjectMapping: 1.300500 ms MarkObjects: 15.260600 ms  DeleteObjects: 5.773700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2521.295049 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_126.obj
+  artifactKey: Guid(503c5c005a1d4ea4bb98426cc79ebf54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_126.obj using Guid(503c5c005a1d4ea4bb98426cc79ebf54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7fce446e2db32e28041b1f77885358a2') in 0.1708328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_097.obj
+  artifactKey: Guid(cc79c183f5521a2409320f9b2f13aa8a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_097.obj using Guid(cc79c183f5521a2409320f9b2f13aa8a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4d680ac5e9b66e2d96b9f9796effd35c') in 0.0215689 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_142.obj
+  artifactKey: Guid(34ff7a322cb71804084d69b77fb1010a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_142.obj using Guid(34ff7a322cb71804084d69b77fb1010a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9743fe73340184ce9e7e2b40d6c430a5') in 0.0162991 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_330.obj
+  artifactKey: Guid(365d99b134ec1dd48a1290c9fe435bd9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_330.obj using Guid(365d99b134ec1dd48a1290c9fe435bd9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '766debc5b3d1f68b411e2600ca976d4b') in 0.016487 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_125.obj
+  artifactKey: Guid(b19f68a184babed448a0c306442f7c73) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_125.obj using Guid(b19f68a184babed448a0c306442f7c73) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3d7556d6301b38a6c27e8a5af146b3db') in 0.015696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_379.obj
+  artifactKey: Guid(f89951823158efa4dab7812fe421a193) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_379.obj using Guid(f89951823158efa4dab7812fe421a193) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '65bc758586efafdb4563324ae52dd41f') in 0.0184495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_207.obj
+  artifactKey: Guid(68f15bd393b931445af02bc6a09afbda) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_207.obj using Guid(68f15bd393b931445af02bc6a09afbda) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'df6bf6c405c8d0cb8f4e1d3dc08bb002') in 0.0176306 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_337.obj
+  artifactKey: Guid(1ad271146c016f24984d2fb1464ff9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_337.obj using Guid(1ad271146c016f24984d2fb1464ff9ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c1b15731c3a1faf41d3cb5c8caedeb58') in 0.0189785 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_248.obj
+  artifactKey: Guid(1b3b1542d3db07d4484d296f7baed4a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_248.obj using Guid(1b3b1542d3db07d4484d296f7baed4a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ff76e280b90e4fa7c0b89428a4dcc8f0') in 0.0163411 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_319.obj
+  artifactKey: Guid(37794a31caf32b14997d6d97f20c4052) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_319.obj using Guid(37794a31caf32b14997d6d97f20c4052) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '872797b96fb01530d2ea78845bd5eab9') in 0.0225789 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_055.obj
+  artifactKey: Guid(a3a0cd32c6581f1488f611f77b647f65) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_055.obj using Guid(a3a0cd32c6581f1488f611f77b647f65) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0e9ae21a6ed85dc75ab4ebbb1bab3e14') in 0.0174004 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_086.obj
+  artifactKey: Guid(5b1c68909a3922845afe906d462c8d9b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_086.obj using Guid(5b1c68909a3922845afe906d462c8d9b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2e39f8c6e9635da17c113dc5d245eb69') in 0.0179876 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_326.obj
+  artifactKey: Guid(8aeee7c2fc7cfae449a26dc9e7b70f40) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_326.obj using Guid(8aeee7c2fc7cfae449a26dc9e7b70f40) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7caa613eceb0cbd4cbaf7f82a0ff9376') in 0.0196719 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_329.obj
+  artifactKey: Guid(1ad1e5219453bf24f8da617856d0d61e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_329.obj using Guid(1ad1e5219453bf24f8da617856d0d61e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6d16b008b6958e594e10a3bcc76d56c9') in 0.0180433 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_136.obj
+  artifactKey: Guid(0f0f7102519c0aa4988a80fe3a335ffa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_136.obj using Guid(0f0f7102519c0aa4988a80fe3a335ffa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3b488dc4c53f2df067bc79dad17a3582') in 0.0152188 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_348.obj
+  artifactKey: Guid(9a9b5954f5584c44e8a20d5edbe32907) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_348.obj using Guid(9a9b5954f5584c44e8a20d5edbe32907) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a42b692ee797de735b908e154bdd233b') in 0.018646 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_168.obj
+  artifactKey: Guid(dbb56f63a4e01a74bbd628fb6f1df3fb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_168.obj using Guid(dbb56f63a4e01a74bbd628fb6f1df3fb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7cc899412de29290057e5054a37fbc4c') in 0.0172691 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_310.obj
+  artifactKey: Guid(13634df2e073c1a408f5b2ce56a7522e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_310.obj using Guid(13634df2e073c1a408f5b2ce56a7522e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e092cc89d35103dc7d4a211d896b176d') in 0.0175599 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_205.obj
+  artifactKey: Guid(845d7d26a5ad7904eb27e4dbebd656a3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_205.obj using Guid(845d7d26a5ad7904eb27e4dbebd656a3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '538fc2c8274d8e59cb14c1ad12e319c5') in 0.0192809 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_121.obj
+  artifactKey: Guid(893879758d548a740954d1ffcedad68e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_121.obj using Guid(893879758d548a740954d1ffcedad68e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '587ef5ba4bc8f54c4d13a3ff0134c281') in 0.0152993 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_290.obj
+  artifactKey: Guid(a58dc2c40cd043c47ae966a44affde03) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_290.obj using Guid(a58dc2c40cd043c47ae966a44affde03) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5db91ab3bf2113501a7e325212c833bc') in 0.0227629 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_160.obj
+  artifactKey: Guid(f5521c84a5943f44cb5f292fdae40b0a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_160.obj using Guid(f5521c84a5943f44cb5f292fdae40b0a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e8c6b6a8cdcdc83f6a136a8308c438ac') in 0.0154814 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_019.obj
+  artifactKey: Guid(90bbf547295d6f54ea5726a69e815b97) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_019.obj using Guid(90bbf547295d6f54ea5726a69e815b97) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a82eee50759da39a902fa74132247747') in 0.0168287 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_289.obj
+  artifactKey: Guid(b1731457c3eca1a41b82f16e577c5d96) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_289.obj using Guid(b1731457c3eca1a41b82f16e577c5d96) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3f70a1fc2abedc17b097ae53a87e6612') in 0.0163857 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_074.obj
+  artifactKey: Guid(77093774ee66ff54a93e72eb0c90109b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_074.obj using Guid(77093774ee66ff54a93e72eb0c90109b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6d6640857c217946c756a7369e24940c') in 0.0155452 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_164.obj
+  artifactKey: Guid(ff2658944faeceb4e8995d1d22397a2a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_164.obj using Guid(ff2658944faeceb4e8995d1d22397a2a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ac5c0bb7fa9ff494e06b11584b52b690') in 0.0173359 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_334.obj
+  artifactKey: Guid(fd211c85af48ad543b4883aaa8b33f51) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_334.obj using Guid(fd211c85af48ad543b4883aaa8b33f51) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e9e5390e43e4d6d0f7680ca66ff2bfcf') in 0.0203789 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_305.obj
+  artifactKey: Guid(5ad224c454010c14884ea4f52d36bf2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_305.obj using Guid(5ad224c454010c14884ea4f52d36bf2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c5db2912dbc6e5baa8af4c3ebbc53eee') in 0.0163412 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_196.obj
+  artifactKey: Guid(232ee207d7c1180419fa113ada42802f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_196.obj using Guid(232ee207d7c1180419fa113ada42802f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4275abef56f9cf96284680b7977ace70') in 0.0151077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_063.obj
+  artifactKey: Guid(bbccb6e4a2158ea429be23e998f52bce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_063.obj using Guid(bbccb6e4a2158ea429be23e998f52bce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd05db5d708304c628eafa27ec0a86220') in 0.0163959 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_016.obj
+  artifactKey: Guid(0772a646ae6e1294f993bac45b2dd2ce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_016.obj using Guid(0772a646ae6e1294f993bac45b2dd2ce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '41dd18f42cfd1d964fddc730d65fe018') in 0.0207542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_092.obj
+  artifactKey: Guid(53bc70e4d5d995c4e937586eb25fa4d0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_092.obj using Guid(53bc70e4d5d995c4e937586eb25fa4d0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6eb329edd1c08548c0cc997e1273b769') in 0.0253178 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_135.obj
+  artifactKey: Guid(ddb22c37a12e0cd4cb4e5584c0dbb30c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_135.obj using Guid(ddb22c37a12e0cd4cb4e5584c0dbb30c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'aefa2cc8fa7f308b53f2c555ce73c2c5') in 0.0174321 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_340.obj
+  artifactKey: Guid(606b0e2627714784b86a2957229a0dd5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_340.obj using Guid(606b0e2627714784b86a2957229a0dd5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4378a2ddc4e96b391ed717cee7839cfa') in 0.0166247 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_322.obj
+  artifactKey: Guid(f52c4cd5a21da3c4d83d81a6f6e9de95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_322.obj using Guid(f52c4cd5a21da3c4d83d81a6f6e9de95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2adfe013bd5e4ff6c78d66f5662e04a5') in 0.0180068 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_249.obj
+  artifactKey: Guid(f4221c85619a98a4bb0f1fd6098708ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_249.obj using Guid(f4221c85619a98a4bb0f1fd6098708ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '658f3c80e400d9aed8e8ea4547b945c6') in 0.0210174 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_371.obj
+  artifactKey: Guid(bb7e2486f6f974341824d10d24226a9d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_371.obj using Guid(bb7e2486f6f974341824d10d24226a9d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c3b63e8380f3611347aa46fec1cc5b1b') in 0.0175531 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_025.obj
+  artifactKey: Guid(7c930f734c814714caf4bf8b9fba4195) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_025.obj using Guid(7c930f734c814714caf4bf8b9fba4195) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c28c44873e16babe6a1afc7900dd4d0c') in 0.0209287 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_124.obj
+  artifactKey: Guid(c1bdb0b36894ff444964e51420e7441a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_124.obj using Guid(c1bdb0b36894ff444964e51420e7441a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3a77c99985631ad2810f952410a63dbb') in 0.019617 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_199.obj
+  artifactKey: Guid(37cbe215daaeda244b6c37be03b2c3de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_199.obj using Guid(37cbe215daaeda244b6c37be03b2c3de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '06688047a1c4632256516fa8be5819fc') in 0.0155375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_129.obj
+  artifactKey: Guid(eaf1b3f5356cdb340a4855f5b7d2bdd5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_129.obj using Guid(eaf1b3f5356cdb340a4855f5b7d2bdd5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9696359e51ff1b4a6169b288727f7207') in 0.015549 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_285.obj
+  artifactKey: Guid(ced57a717e0fd8f4ba93f99d430a9304) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_285.obj using Guid(ced57a717e0fd8f4ba93f99d430a9304) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '97fa1313943457cbc361e2ec38ae340a') in 0.0187999 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_193.obj
+  artifactKey: Guid(53f83fd02ab569a4ebefc82e55d39a31) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_193.obj using Guid(53f83fd02ab569a4ebefc82e55d39a31) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '41b01cf78f3e1227ad0e4285f7a53ce8') in 0.0160283 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_373.obj
+  artifactKey: Guid(e0f583ba1c00d7243b2f0918123b43fc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_373.obj using Guid(e0f583ba1c00d7243b2f0918123b43fc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3427a315434c8f8788079425852f13a6') in 0.0166958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_377.obj
+  artifactKey: Guid(141ceaabeb5d72044bc800c2ab2fef71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_377.obj using Guid(141ceaabeb5d72044bc800c2ab2fef71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9e222ac0a7b77760326c7fa2468d2f2a') in 0.0164491 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_215.obj
+  artifactKey: Guid(61484a5a2c4a8d848b6399887df73e37) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_215.obj using Guid(61484a5a2c4a8d848b6399887df73e37) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '04f5d404514045f363f3555495a15eea') in 0.018568 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_250.obj
+  artifactKey: Guid(e68032383fe1b1a4f80454e7d5b86ab5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_250.obj using Guid(e68032383fe1b1a4f80454e7d5b86ab5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a74bed1b1f4f2a121b7a78d239dd2c2e') in 0.0172661 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_105.obj
+  artifactKey: Guid(2ada926b22c31c9499e33fc4dfefcf4f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_105.obj using Guid(2ada926b22c31c9499e33fc4dfefcf4f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '00a94291313fd064477e139ffedd64ce') in 0.0167688 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_325.obj
+  artifactKey: Guid(56dbfc68521e08a46a7afed56bb9f30b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_325.obj using Guid(56dbfc68521e08a46a7afed56bb9f30b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '19cbf986e6f26e5abea3fe6df1a4e3f4') in 0.0158874 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_143.obj
+  artifactKey: Guid(66ee18d7aeadf6444b6b18f78a5b3ff3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_143.obj using Guid(66ee18d7aeadf6444b6b18f78a5b3ff3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '813259f6a97d8e6e4dfb266535516e51') in 0.0172028 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_062.obj
+  artifactKey: Guid(86ab550be5ae7c9408aacbeeb78f5d2f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_062.obj using Guid(86ab550be5ae7c9408aacbeeb78f5d2f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3964d3d23b6f09f7d37c3de69b3bee33') in 0.0193852 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_049.obj
+  artifactKey: Guid(6ab3e78b7b3ce864d95ab2c2eedc68e7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_049.obj using Guid(6ab3e78b7b3ce864d95ab2c2eedc68e7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '46fe73ca6d257cc2a1d2b6e6e6973071') in 0.0155048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_166.obj
+  artifactKey: Guid(2c0951381445fca4aafbdc4026398db2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_166.obj using Guid(2c0951381445fca4aafbdc4026398db2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ba1f13fa3b0e8cf488be0328c895bd65') in 0.0169031 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_225.obj
+  artifactKey: Guid(829c8558640379e458ef921d2d02c07e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_225.obj using Guid(829c8558640379e458ef921d2d02c07e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3f5546c5f7fac402adef096f6a40ec9e') in 0.0213287 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_243.obj
+  artifactKey: Guid(c8c6ed4bb3c5c914fa29fef94e877e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_243.obj using Guid(c8c6ed4bb3c5c914fa29fef94e877e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '85da6ae0385f3deabb6b4c9fa37cef0c') in 0.018226 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_191.obj
+  artifactKey: Guid(08e2f5d7d7940104e845f2cd14d63d63) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_191.obj using Guid(08e2f5d7d7940104e845f2cd14d63d63) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c52e974888ede676b7fd79c9dc061e2f') in 0.0166892 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_161.obj
+  artifactKey: Guid(cde5cb7948d69a24fb4ea73f02482900) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_161.obj using Guid(cde5cb7948d69a24fb4ea73f02482900) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6e29fba8500d5589c5a91f539a350c04') in 0.0158146 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_264.obj
+  artifactKey: Guid(0cfda9cafa9fa5443831de59f7a59880) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_264.obj using Guid(0cfda9cafa9fa5443831de59f7a59880) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7564b1fa6105591d76b73f086e6b8371') in 0.0209856 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_036.obj
+  artifactKey: Guid(81ac98a741d62ee4f8b861534e1427c9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_036.obj using Guid(81ac98a741d62ee4f8b861534e1427c9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9d8acb8af93826dcaeffafad1c8e7115') in 0.017341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_073.obj
+  artifactKey: Guid(df63fa0ae35f022449a5a668d3a345fd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_073.obj using Guid(df63fa0ae35f022449a5a668d3a345fd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3eb51b59345a5cfab516e4f2f76798e4') in 0.0159638 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_158.obj
+  artifactKey: Guid(006b8bd721663ca40a500e1ec450d180) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_158.obj using Guid(006b8bd721663ca40a500e1ec450d180) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2bee3f2c799f91c865f8c093dfdfe2d9') in 0.0166448 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_366.obj
+  artifactKey: Guid(fb0784191fcfe0d40bed697c7f062f0b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_366.obj using Guid(fb0784191fcfe0d40bed697c7f062f0b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6c864190ef0dc57bce40e548043b8e15') in 0.0162064 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_144.obj
+  artifactKey: Guid(eb5cd6ba6d793cc4daa3dbdcdf0c789a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_144.obj using Guid(eb5cd6ba6d793cc4daa3dbdcdf0c789a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '29a9430c0e6009af40805e0dae0d50e4') in 0.017418 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_120.obj
+  artifactKey: Guid(b75fa669ef1c76040bd863f8ab42d159) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_120.obj using Guid(b75fa669ef1c76040bd863f8ab42d159) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a5176f380018248aab3ae89ded1f01bf') in 0.0171796 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_012.obj
+  artifactKey: Guid(967f84e7be4ea9d40bb0a01ffe489beb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_012.obj using Guid(967f84e7be4ea9d40bb0a01ffe489beb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '41fe6c7fd060dc398f9a9ba12d2e9472') in 0.0183313 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_133.obj
+  artifactKey: Guid(15a0ce28e4f879a43a518e9a3b2a6d87) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_133.obj using Guid(15a0ce28e4f879a43a518e9a3b2a6d87) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '30716c12a5edd1b4c97cd75843ec0058') in 0.0168581 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_110.obj
+  artifactKey: Guid(9cb71b0a6a0d94848af95e465233701b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_110.obj using Guid(9cb71b0a6a0d94848af95e465233701b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4b33bef99cc3ef5d79cfdde6af4bd4d5') in 0.0160796 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_010.obj
+  artifactKey: Guid(c32b6228512af4642864d4071b85484c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_010.obj using Guid(c32b6228512af4642864d4071b85484c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bf480dc3ff83068bdc4cd0d5ce1b535b') in 0.0188942 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019044 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_255.obj
+  artifactKey: Guid(4333c9eb97e9aed46a665bc37b145fdd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_255.obj using Guid(4333c9eb97e9aed46a665bc37b145fdd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f75b0560a4774c65c62ab9411ebf06b0') in 0.0153669 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_003.obj
+  artifactKey: Guid(9a3b302cbff7f7a4480bbfdd528f79c7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_003.obj using Guid(9a3b302cbff7f7a4480bbfdd528f79c7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ff1e10d56f797d144206929e99d949e2') in 0.0164599 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_351.obj
+  artifactKey: Guid(1453f31e25c558247aff0ec75502ce4c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_351.obj using Guid(1453f31e25c558247aff0ec75502ce4c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'dc291f8acab95c1dee65ba05742f9889') in 0.0164674 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_045.obj
+  artifactKey: Guid(f75a25ad6b21c0440bc1337bc7e82420) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_045.obj using Guid(f75a25ad6b21c0440bc1337bc7e82420) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a4289e93839cc2a1551ce49ad3fa10a4') in 0.0171506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_216.obj
+  artifactKey: Guid(33145b3cef7e0204294add25b14bc191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_216.obj using Guid(33145b3cef7e0204294add25b14bc191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7b5ab0b50f41fc6be6b4ed81d8111655') in 0.0183371 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_335.obj
+  artifactKey: Guid(7ea83c8c746c1e94583ccffb3d4eecc3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_335.obj using Guid(7ea83c8c746c1e94583ccffb3d4eecc3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0179b8940bc1f802c1f565894cb886c5') in 0.0169145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_040.obj
+  artifactKey: Guid(f1f1146f70dd1be4d91b1e79f10b83da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_040.obj using Guid(f1f1146f70dd1be4d91b1e79f10b83da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ba23678b2a42b3facc1ede249fcfbbfb') in 0.0210132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_119.obj
+  artifactKey: Guid(4d41648cd15048248afd3f426499c753) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_119.obj using Guid(4d41648cd15048248afd3f426499c753) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7a9252c480dbba15ed1f498c1d5644cb') in 0.0214166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_288.obj
+  artifactKey: Guid(e9fb423ea025f9d49af440b20dc97ac4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_288.obj using Guid(e9fb423ea025f9d49af440b20dc97ac4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cf2a3aeb4c1da40bbcc1a09d5cfdc249') in 0.0181036 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_317.obj
+  artifactKey: Guid(f8047fcea40709c4c9151b95535b906a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_317.obj using Guid(f8047fcea40709c4c9151b95535b906a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '105b02f31e5f8e2c9d549ab4b35ff34f') in 0.0187238 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_381.obj
+  artifactKey: Guid(061bc1bda3a9836498232c1a98b7e594) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_381.obj using Guid(061bc1bda3a9836498232c1a98b7e594) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ede7ef8db1168749e2533b8c4521c135') in 0.0173842 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_265.obj
+  artifactKey: Guid(1e2da54e4127ba44689471d7d432db11) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_265.obj using Guid(1e2da54e4127ba44689471d7d432db11) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e6b3328b52757b7bcc780ce0c0e94126') in 0.0182328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_153.obj
+  artifactKey: Guid(e704a00f30304494faa38f78e839c3af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_153.obj using Guid(e704a00f30304494faa38f78e839c3af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '598d65656b3f9e96c67e5cac7a2f89f9') in 0.0197372 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_116.obj
+  artifactKey: Guid(f4d8a0bee0aee93438fbbda90214e3ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_116.obj using Guid(f4d8a0bee0aee93438fbbda90214e3ee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2e59efac767a2b7796a4ca1086940d2d') in 0.0211294 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_235.obj
+  artifactKey: Guid(df62054d0534dd642b910baa46c05e54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_235.obj using Guid(df62054d0534dd642b910baa46c05e54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '90c1e3e738f5bfeb5a8b586553ab0531') in 0.0167307 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_179.obj
+  artifactKey: Guid(dc312fcd496442c46abc2390302be1e8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_179.obj using Guid(dc312fcd496442c46abc2390302be1e8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '91a36872a935da8cad2058acb56f25e7') in 0.0176918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_046.obj
+  artifactKey: Guid(1bcde54d92b6014418e4f17b2659908c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_046.obj using Guid(1bcde54d92b6014418e4f17b2659908c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '580705dad01171ddd07924a2954df416') in 0.0191277 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_274.obj
+  artifactKey: Guid(2ed0002c747f6f9489d1daec84ed8be7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_274.obj using Guid(2ed0002c747f6f9489d1daec84ed8be7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '86980ba5be3ee0cf0e8e716083de96c7') in 0.0472739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_152.obj
+  artifactKey: Guid(6a40fc1c2db0fc841aa22e6fb4b54872) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_152.obj using Guid(6a40fc1c2db0fc841aa22e6fb4b54872) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8307ba16b5a8ffbc54d5d8fd1bab4a69') in 0.019823 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_071.obj
+  artifactKey: Guid(013854ac231fd9b458962cf9da7894be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_071.obj using Guid(013854ac231fd9b458962cf9da7894be) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '625a8a69c5f1c9059308cf27bc1deef2') in 0.0181688 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_200.obj
+  artifactKey: Guid(967c1c6c757e6864fbfc4bebb86ca765) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_200.obj using Guid(967c1c6c757e6864fbfc4bebb86ca765) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '98f3603a7b033a45fabf0468946e49d0') in 0.0186746 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_218.obj
+  artifactKey: Guid(87eb5c6eaa58eca45a57a36bc1421412) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_218.obj using Guid(87eb5c6eaa58eca45a57a36bc1421412) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f47e5f88892b9bab12c04d1ab39c5685') in 0.0185955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_027.obj
+  artifactKey: Guid(39fa641e519730040a0e3f854d29a841) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_027.obj using Guid(39fa641e519730040a0e3f854d29a841) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7be8332e0f5921b0b4d2d2fbdf4c4afe') in 0.0197585 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_220.obj
+  artifactKey: Guid(1e29361f6e2b2a847a71d9dece40b7c3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_220.obj using Guid(1e29361f6e2b2a847a71d9dece40b7c3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c98fc0778ffb1af1a8edeff3845d1c68') in 0.0195841 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/meshes/part_315.obj
+  artifactKey: Guid(8ab710ffa06af4a4b8f760063191b07d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/meshes/part_315.obj using Guid(8ab710ffa06af4a4b8f760063191b07d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f2f27c7911702f4d0b897f53aab72889') in 0.0211906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.158227 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_001.mat
+  artifactKey: Guid(cb761d3ef9c3b054e90feff2c77b8600) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_001.mat using Guid(cb761d3ef9c3b054e90feff2c77b8600) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a3df2756f5492e5c0ab2dfabd853a51f') in 0.0136021 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_107.mat
+  artifactKey: Guid(66324380426f65d42a4bef7f749b6191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_107.mat using Guid(66324380426f65d42a4bef7f749b6191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '460b090c01f30930b06ce7540ec4fb15') in 0.0131479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_077.mat
+  artifactKey: Guid(dd2465aab2f302948b690186dbd46e83) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_077.mat using Guid(dd2465aab2f302948b690186dbd46e83) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '241af110628801860ef38666c3c49a39') in 0.011013 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_067.mat
+  artifactKey: Guid(ebef03753fa0c91489ddefbf48e9a56b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_067.mat using Guid(ebef03753fa0c91489ddefbf48e9a56b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '647170a0a257dd7520fef0cacd967cea') in 0.012543 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_053.mat
+  artifactKey: Guid(5c0882e3f979ab943afdd89a17b9aa19) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_053.mat using Guid(5c0882e3f979ab943afdd89a17b9aa19) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1f6295fc4d071aaa07836e5ffae73daa') in 0.0120626 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_105.mat
+  artifactKey: Guid(6a1f87a10a817704aa0b31323a937d36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_105.mat using Guid(6a1f87a10a817704aa0b31323a937d36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '78cf8d8dd0f78d0577ac54e5013442f9') in 0.0133971 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_113.mat
+  artifactKey: Guid(b6162c687dd7f5a4aa36e51f3a7e4fce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_113.mat using Guid(b6162c687dd7f5a4aa36e51f3a7e4fce) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '806a83276eaa88cbe4c05c257ad12a2b') in 0.0107666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_028.mat
+  artifactKey: Guid(2188573fab436be498921dfbf6dfb6f3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_028.mat using Guid(2188573fab436be498921dfbf6dfb6f3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '92428ce6da66a74545786a087d772686') in 0.010966 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_037.mat
+  artifactKey: Guid(bd9f8c11df961b2469bec7ebf7a2cf71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_037.mat using Guid(bd9f8c11df961b2469bec7ebf7a2cf71) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e5b1a0fb76f04cf9d94d232919d93e3b') in 0.0111602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_002.mat
+  artifactKey: Guid(6d8c0214a58c32247907661f46d283ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_002.mat using Guid(6d8c0214a58c32247907661f46d283ab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3194f8185b0d9765b7d5de6d42fc6400') in 0.0114874 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_095.mat
+  artifactKey: Guid(2bcf0539b35708049884999adf0ad01c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_095.mat using Guid(2bcf0539b35708049884999adf0ad01c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ac3dd7d60d6952b9e3a834cfb325f7f0') in 0.0120474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_070.mat
+  artifactKey: Guid(9375936a080d76b4cbb1a0bd1f356cd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_070.mat using Guid(9375936a080d76b4cbb1a0bd1f356cd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4e08fe8b88f91b3859ae29990fd5034c') in 0.0105942 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_151.mat
+  artifactKey: Guid(84372b1176015f544a16fc54b1632b2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_151.mat using Guid(84372b1176015f544a16fc54b1632b2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4332f34bb99296d67b5e2b9b3e48be82') in 0.0131866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_045.mat
+  artifactKey: Guid(9514ac17efedbfa4f8d428c2b5018bfc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_045.mat using Guid(9514ac17efedbfa4f8d428c2b5018bfc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '270fbb49bff78919f16877f72b6a385e') in 0.0118546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000085 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_075.mat
+  artifactKey: Guid(8023627709199dc448b9671bf7b822e5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_075.mat using Guid(8023627709199dc448b9671bf7b822e5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '28e8c6cb3fb5f1f81efcdbf99c370d77') in 0.0126878 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_083.mat
+  artifactKey: Guid(0a4581621276612489dba37157ce3154) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_083.mat using Guid(0a4581621276612489dba37157ce3154) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3411c13df8db7f7535fa4e035c219d10') in 0.0107743 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_115.mat
+  artifactKey: Guid(ece8d6d777a7be54fbcec9d6276a095a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_115.mat using Guid(ece8d6d777a7be54fbcec9d6276a095a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'da46acbcf9e9fe996972bd44adfbd51f') in 0.0153553 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_024.mat
+  artifactKey: Guid(33596a5dea2354c46b8fac53f1492f04) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_024.mat using Guid(33596a5dea2354c46b8fac53f1492f04) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '54786a87b13f7981b15590041da90979') in 0.0107218 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000104 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_012.mat
+  artifactKey: Guid(b55a2fb3299d6474c880686fdeaeaac1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_012.mat using Guid(b55a2fb3299d6474c880686fdeaeaac1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c77071070664ff4af9af438ee652112e') in 0.0122696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_080.mat
+  artifactKey: Guid(4923b598124f39d43abb587a08306d32) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_080.mat using Guid(4923b598124f39d43abb587a08306d32) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9102f90a1588a71b833dec343a4d5a45') in 0.0123474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_097.mat
+  artifactKey: Guid(df0f726671af0a349b157d1f6ee89222) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_097.mat using Guid(df0f726671af0a349b157d1f6ee89222) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9af2288ab69359fe462756846a7e5840') in 0.0136109 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_069.mat
+  artifactKey: Guid(3d955db586223d049b46ea8de0755bee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_069.mat using Guid(3d955db586223d049b46ea8de0755bee) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1e99559a737238ec20e3bc1fb1020a6f') in 0.0156456 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_110.mat
+  artifactKey: Guid(086790f0de0b1124b9aa1f978f25e438) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_110.mat using Guid(086790f0de0b1124b9aa1f978f25e438) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f2ff30e8d771afb75fa9dd3607c53f4a') in 0.0111143 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_042.mat
+  artifactKey: Guid(ad1b60a7dca3f9244948355b9cfd48af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_042.mat using Guid(ad1b60a7dca3f9244948355b9cfd48af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'abf7afb42e21c582ca0158837fb36a01') in 0.0152709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_108.mat
+  artifactKey: Guid(c2252198d0f46de4b8ac36746581159e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_108.mat using Guid(c2252198d0f46de4b8ac36746581159e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'edefbd9f1194837564a20c635975c344') in 0.0118195 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_125.mat
+  artifactKey: Guid(4b76980e2c29641499ea4941eec496db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_125.mat using Guid(4b76980e2c29641499ea4941eec496db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd82c58d65b8a34ecf2b18f65211f63f1') in 0.0131593 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_134.mat
+  artifactKey: Guid(6039914f5f3f7d14eac918d8ce168446) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_134.mat using Guid(6039914f5f3f7d14eac918d8ce168446) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '761794e34c19241648fba3e53b4a60d0') in 0.0117713 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_119.mat
+  artifactKey: Guid(5f5007042a5d09847a49556c37b5cd07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_119.mat using Guid(5f5007042a5d09847a49556c37b5cd07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9e70fd9c5629c788d76446efa2a8dd16') in 0.0151739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_130.mat
+  artifactKey: Guid(76fe365184db6914c80b09131d22d4f8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_130.mat using Guid(76fe365184db6914c80b09131d22d4f8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c154dd043ccad035a31b597f3ef1655c') in 0.0141651 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_124.mat
+  artifactKey: Guid(066345393507d564fb1fdc7f6d3721cd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_124.mat using Guid(066345393507d564fb1fdc7f6d3721cd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6d3181be5e06c67e91b222d01863e220') in 0.0120343 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_135.mat
+  artifactKey: Guid(a08bd626a05722d42a8438b23e9e1ceb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_135.mat using Guid(a08bd626a05722d42a8438b23e9e1ceb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b65a3eef77cd28656ddddf7cd67d78b8') in 0.0126423 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_043.mat
+  artifactKey: Guid(11cfdcdc1147f744bbcd98c87d747c95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_043.mat using Guid(11cfdcdc1147f744bbcd98c87d747c95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1a16b8943295fda51ccad42caeaf4f04') in 0.0115104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_064.mat
+  artifactKey: Guid(d58bdd42209440d4dbc0ddfb168247c3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_064.mat using Guid(d58bdd42209440d4dbc0ddfb168247c3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2fdb3be62632cfa23d93469c728d17e3') in 0.0128222 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_018.mat
+  artifactKey: Guid(de1e74aa235b3d745ab66a898fc9cf95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_018.mat using Guid(de1e74aa235b3d745ab66a898fc9cf95) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '68acf46838b97c0f1cf3fbdd4a37f7a0') in 0.0114344 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_041.mat
+  artifactKey: Guid(09f07b4887469d74db6ad38ddd3f0b54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_041.mat using Guid(09f07b4887469d74db6ad38ddd3f0b54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4c49fc53aeea4497b4d767d410f83125') in 0.0134924 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_062.mat
+  artifactKey: Guid(22b73f2afc83b95408006d49134f67de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_062.mat using Guid(22b73f2afc83b95408006d49134f67de) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2ab1201a62f08ef5fba366c4e5546376') in 0.0104048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_237.mat
+  artifactKey: Guid(b5d953aa9891deb4ba020e520e9839d6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_237.mat using Guid(b5d953aa9891deb4ba020e520e9839d6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ed3c14eea1bde77cfa73bac2b328c9a5') in 0.0128545 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_349.mat
+  artifactKey: Guid(d917ab4b3b2b9d0469bbaaf1c5fd4089) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_349.mat using Guid(d917ab4b3b2b9d0469bbaaf1c5fd4089) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4a34c930286c8e579b26257f94ba3794') in 0.0143816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_376.mat
+  artifactKey: Guid(fbdcbdd9ec4b4e3469883e15b174f723) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_376.mat using Guid(fbdcbdd9ec4b4e3469883e15b174f723) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cb77f3627692982ef3b9abd59919c69b') in 0.0127059 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_284.mat
+  artifactKey: Guid(7772d2e7f992019449576bac29cbf702) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_284.mat using Guid(7772d2e7f992019449576bac29cbf702) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '88fb9ea6c2765b1d8646a0db1a51458d') in 0.0121145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_337.mat
+  artifactKey: Guid(b6520766b2c530a49b2212d07346e069) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_337.mat using Guid(b6520766b2c530a49b2212d07346e069) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6d2b26db07cd71545f5716e7b4b202ba') in 0.013219 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_344.mat
+  artifactKey: Guid(4aec22eca58077f46a3b6f2f9d53f0d2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_344.mat using Guid(4aec22eca58077f46a3b6f2f9d53f0d2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ac3850683483bc711072acb33163535d') in 0.0143115 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_290.mat
+  artifactKey: Guid(252ac1c4f36e7d444b295924509071dd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_290.mat using Guid(252ac1c4f36e7d444b295924509071dd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0c6cb68a147b82f31134108e00bea075') in 0.0141552 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_279.mat
+  artifactKey: Guid(b6bc10003703a9944a7f15884520d028) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_279.mat using Guid(b6bc10003703a9944a7f15884520d028) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1ae952b08aedbeb3869c86768f56f56a') in 0.0146034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_273.mat
+  artifactKey: Guid(097a5d8c293b5f94d994ae870af57574) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_273.mat using Guid(097a5d8c293b5f94d994ae870af57574) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c3ba61c67ca1915956a6be942f58cd5d') in 0.0120445 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_348.mat
+  artifactKey: Guid(a4f006c8bae441745a383b989737236c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_348.mat using Guid(a4f006c8bae441745a383b989737236c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c9e14fc3d617b2b78c584bb60d58b1e8') in 0.0133032 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_377.mat
+  artifactKey: Guid(2a12d30214a763d4bbc926b93b751695) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_377.mat using Guid(2a12d30214a763d4bbc926b93b751695) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5f83f9100e10c7018aa7f42346ba8e74') in 0.0129595 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_346.mat
+  artifactKey: Guid(c2931c1072d38b24dab67a1756a63ab0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_346.mat using Guid(c2931c1072d38b24dab67a1756a63ab0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3580b21aa322cf30ea3bb8ef50f9df84') in 0.0124946 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_261.mat
+  artifactKey: Guid(8fa802d2a40a82f419294848a14edbb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_261.mat using Guid(8fa802d2a40a82f419294848a14edbb2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '63d0a41a99ac64a095cf636eddc53640') in 0.0125109 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_297.mat
+  artifactKey: Guid(101896315b0e35e49bfbd2c3c0d0e42c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_297.mat using Guid(101896315b0e35e49bfbd2c3c0d0e42c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f00def0622969c0e4d07db213edfda9e') in 0.0121857 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_220.mat
+  artifactKey: Guid(c143ec6113c5e28449012bd67cdfc6ef) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_220.mat using Guid(c143ec6113c5e28449012bd67cdfc6ef) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5c267e7b5cc0cab6f04af83c9ba07bca') in 0.0137226 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_325.mat
+  artifactKey: Guid(c471c5bb938ac7f47bf9e77f642a2817) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_325.mat using Guid(c471c5bb938ac7f47bf9e77f642a2817) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2f44017d8fd5845acf3b0faa651936a3') in 0.0143116 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_334.mat
+  artifactKey: Guid(db1822fc14ef0f641ba4c05e637c4800) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_334.mat using Guid(db1822fc14ef0f641ba4c05e637c4800) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5bba648fc14aecce247782da6b26dfa6') in 0.0107593 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_327.mat
+  artifactKey: Guid(a6a7a2c4e82048749ad3108d895feb4e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_327.mat using Guid(a6a7a2c4e82048749ad3108d895feb4e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '164b8b77397870134e0a1794c9b6000a') in 0.0134703 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_251.mat
+  artifactKey: Guid(d45b4d176066bc44391d4fcb61ba8040) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_251.mat using Guid(d45b4d176066bc44391d4fcb61ba8040) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a99628071e75af33f022f57bd83258b9') in 0.0138028 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_285.mat
+  artifactKey: Guid(633b4a4be6d852142828961d0311774b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_285.mat using Guid(633b4a4be6d852142828961d0311774b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f010d79b73df36ab20ad54c4715b26c8') in 0.0140773 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_277.mat
+  artifactKey: Guid(de08ea0cb50bd8943964af0d57380e5d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_277.mat using Guid(de08ea0cb50bd8943964af0d57380e5d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ccbc446fccbe49f8eb02fee144cb4370') in 0.0133136 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_364.mat
+  artifactKey: Guid(01576172a3f3b5e4e8b0ad60c9410c51) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_364.mat using Guid(01576172a3f3b5e4e8b0ad60c9410c51) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7af81868574f7db09c77dc88ee3781c9') in 0.0123265 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_374.mat
+  artifactKey: Guid(77acf93e30c00fb40b2c172d630a4189) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_374.mat using Guid(77acf93e30c00fb40b2c172d630a4189) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9ee7f61557b5872e950d0948b5ed5692') in 0.0140038 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_244.mat
+  artifactKey: Guid(6bbe722c81367b747ae0bdfe666e20f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_244.mat using Guid(6bbe722c81367b747ae0bdfe666e20f6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '35b2411a38f865376baf14c9b12ba1bb') in 0.0111274 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_282.mat
+  artifactKey: Guid(d7257d0d32a48f440b98bb356a39a04c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_282.mat using Guid(d7257d0d32a48f440b98bb356a39a04c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4a50f52434403e4d8ede725288ffba92') in 0.0119172 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_275.mat
+  artifactKey: Guid(bcc3fc43f01550e4f82e6eaeda352ca8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_275.mat using Guid(bcc3fc43f01550e4f82e6eaeda352ca8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5e71676e4c96a44eca88a795b6a75153') in 0.0136134 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_343.mat
+  artifactKey: Guid(0163fc7509b1cc243b36df32595d22cd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_343.mat using Guid(0163fc7509b1cc243b36df32595d22cd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ecb2eeed5fefcc2cca47857e09fa6176') in 0.0122224 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_250.mat
+  artifactKey: Guid(1094c1f75134ace42a2fb23324ec9258) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_250.mat using Guid(1094c1f75134ace42a2fb23324ec9258) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1d4e2dc342e2d532013053ab5626dd75') in 0.0130389 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_316.mat
+  artifactKey: Guid(bc13a99ebd04e2547a34c6b3eb4add92) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_316.mat using Guid(bc13a99ebd04e2547a34c6b3eb4add92) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2f5ac8a9a9190b8fc2c6f058751a71cd') in 0.01209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_332.mat
+  artifactKey: Guid(eb2792ecc2640594f81a4cb8416c4ee2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_332.mat using Guid(eb2792ecc2640594f81a4cb8416c4ee2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8abe94559293d555ff1d048c6f4612ce') in 0.0137431 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_245.mat
+  artifactKey: Guid(9e42917fe3789974c959a9905ce74cbc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_245.mat using Guid(9e42917fe3789974c959a9905ce74cbc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9c0188ff832a49af02f724cc3ff8b9e9') in 0.0154008 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_308.mat
+  artifactKey: Guid(3709eced824d06d419e1c19900cb6e9f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_308.mat using Guid(3709eced824d06d419e1c19900cb6e9f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f5e7ba81d213be192eb246ac8bc9aaa4') in 0.0127536 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_345.mat
+  artifactKey: Guid(9f956ef9838ff4047b5e721287870e69) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_345.mat using Guid(9f956ef9838ff4047b5e721287870e69) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '99c2607913f914daf27d155bfd8a06ad') in 0.0146772 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_266.mat
+  artifactKey: Guid(af975ceb831da354eb810cd08fb8c1c1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_266.mat using Guid(af975ceb831da354eb810cd08fb8c1c1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f7c78682c76ad17859a93c26676ee4ca') in 0.0125653 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000088 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_057.mat
+  artifactKey: Guid(01363b4764b970c478b9186192935701) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_057.mat using Guid(01363b4764b970c478b9186192935701) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '930734ba82795c0190461169d24f055c') in 0.0157237 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_031.mat
+  artifactKey: Guid(ec1c92f844c6feb41be909b7c917d0da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_031.mat using Guid(ec1c92f844c6feb41be909b7c917d0da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9905e6c6cde19d0e80fe7ad01a858c73') in 0.0130933 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_161.mat
+  artifactKey: Guid(ccbcfb41a2849a64c920d8c8c4176156) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_161.mat using Guid(ccbcfb41a2849a64c920d8c8c4176156) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8bce4c807d87e9860ca0672d392fc426') in 0.0162103 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_373.mat
+  artifactKey: Guid(be41142a440333a428ef034c3fd17091) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_373.mat using Guid(be41142a440333a428ef034c3fd17091) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a66dc30dbed1f37c1c006f2e8f6cec6c') in 0.0169503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_235.mat
+  artifactKey: Guid(bcaaa1de161b583419cc501449f9f9b1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_235.mat using Guid(bcaaa1de161b583419cc501449f9f9b1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd802fc3e62658bd71451b373d4b04ffb') in 0.0161349 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_195.mat
+  artifactKey: Guid(f5145c98448a5984fb7a3350fa14a127) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_195.mat using Guid(f5145c98448a5984fb7a3350fa14a127) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7b2160ac9259b40e6ecc0e855a8d1f4b') in 0.0140931 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_172.mat
+  artifactKey: Guid(7876dc88f1a99284cb4e69a90cbadd36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_172.mat using Guid(7876dc88f1a99284cb4e69a90cbadd36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6b6160fe83db9fbc0d13e061dca5eec3') in 0.0202885 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_147.mat
+  artifactKey: Guid(965cd81133ba86c4a9529037706fc68e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_147.mat using Guid(965cd81133ba86c4a9529037706fc68e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '03109730140a2f017f5fecff180612d4') in 0.0146381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_193.mat
+  artifactKey: Guid(2edd241c656aae2479c59198f44a423e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_193.mat using Guid(2edd241c656aae2479c59198f44a423e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6aa9c30857d92c8da5b3d0861fe43525') in 0.0167234 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_173.mat
+  artifactKey: Guid(222a607ec4eedbb43b3e7cbfcf88535e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_173.mat using Guid(222a607ec4eedbb43b3e7cbfcf88535e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'dc0201389b454338992b05952a2a2823') in 0.0153837 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_189.mat
+  artifactKey: Guid(8efcb991b4391ad47a2f70175413551a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_189.mat using Guid(8efcb991b4391ad47a2f70175413551a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1732a61b51e247b0968e44e1ec15dd63') in 0.0138283 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_203.mat
+  artifactKey: Guid(215b2ab82416da2498c3eeda61207168) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_203.mat using Guid(215b2ab82416da2498c3eeda61207168) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e90f97699f0fae6d6886c7c4f902cc84') in 0.0159649 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_177.mat
+  artifactKey: Guid(32fb30549d447ae408c8ca35429d632c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_177.mat using Guid(32fb30549d447ae408c8ca35429d632c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bbdf6c9f70cd91ce87b716d53299e6af') in 0.0144659 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_233.mat
+  artifactKey: Guid(0c886ee51902599448c11d6f2d38e0b9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_233.mat using Guid(0c886ee51902599448c11d6f2d38e0b9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '40aa192815225f4658837d61717076d9') in 0.0146559 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_230.mat
+  artifactKey: Guid(348fc28de7d72bf409afb83530917444) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_230.mat using Guid(348fc28de7d72bf409afb83530917444) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '58aaf95d6df0c935942c985d2b51a038') in 0.0128686 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_143.mat
+  artifactKey: Guid(cec45bb38677b4041814f8f58419b3ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_143.mat using Guid(cec45bb38677b4041814f8f58419b3ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b226b89b0e44c162b3e0390e1d971de6') in 0.0137381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_232.mat
+  artifactKey: Guid(3d9d2aa52fa44ff49bde2e78fe83286a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_232.mat using Guid(3d9d2aa52fa44ff49bde2e78fe83286a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e1092cfb768c1e1fd017997b5e66ac3d') in 0.0156801 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_169.mat
+  artifactKey: Guid(37fc11b94d20b614eb939cc6d0886753) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_169.mat using Guid(37fc11b94d20b614eb939cc6d0886753) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'baaef9cf6acab4d07b790270cab76106') in 0.0159926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_141.mat
+  artifactKey: Guid(b001c944c5899fc4a855c54f0771ad10) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_141.mat using Guid(b001c944c5899fc4a855c54f0771ad10) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '33bf495d4ad18eef4fe007b754ca0eca') in 0.0141152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_160.mat
+  artifactKey: Guid(68cafb06b628de04cb6f52f8e6b0ea67) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_160.mat using Guid(68cafb06b628de04cb6f52f8e6b0ea67) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3178a3e4390183c8118fdf6a869f12ad') in 0.0156319 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_184.mat
+  artifactKey: Guid(f3a2467e9433e654a955c881e7c3261f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_184.mat using Guid(f3a2467e9433e654a955c881e7c3261f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'be1224ebf856043c0e5922f5a6897877') in 0.0149671 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_204.mat
+  artifactKey: Guid(12e5445876560de41816bc8054468524) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_204.mat using Guid(12e5445876560de41816bc8054468524) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5e300e625b73dc1eb1e3c97619ecded7') in 0.017635 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_299.mat
+  artifactKey: Guid(66320c103e4aded449ee8cf29a68f116) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_299.mat using Guid(66320c103e4aded449ee8cf29a68f116) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '79555e8bb0111f83e6cba5f92b241279') in 0.0137794 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_201.mat
+  artifactKey: Guid(48a89574a5b1afb41981ca62406289a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_201.mat using Guid(48a89574a5b1afb41981ca62406289a9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5560ea3a0e10100bc60436ea00789639') in 0.0126633 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_217.mat
+  artifactKey: Guid(3b9b6acdc15533e4b8f00303eb1b9f20) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_217.mat using Guid(3b9b6acdc15533e4b8f00303eb1b9f20) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '71ba12655cb95d373d090d89db7677d4') in 0.0147788 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Robots/independent_steer_golf_robot/Materials/material_part_240.mat
+  artifactKey: Guid(b51567bcc892d1c4ba4c4ac8391a0cc2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Robots/independent_steer_golf_robot/Materials/material_part_240.mat using Guid(b51567bcc892d1c4ba4c4ac8391a0cc2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8c4c237498c8db6e8d23686ae0876195') in 0.0154897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
