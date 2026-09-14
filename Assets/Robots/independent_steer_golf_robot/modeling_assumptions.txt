@@ -1,0 +1,27 @@
+Independent-steer golf robot: first simulation URDF
+
+Physical links: 13 (Unity ArticulationBody limit: 64)
+Visual mesh parts retained: 382
+Coordinates: ROS X forward, Y left, Z up; metres.
+Three MG92B steering joints are modeled as +/-90 degree revolute joints.
+Three MG90D drive joints are modeled as continuous wheel-output joints.
+The 20:40 spur gear pair is a 2.0:1 reduction; implement this in the Unity drive controller.
+Camera and both eye mechanisms are modeled as servo-driven revolute joints.
+The curved tongue/catch rail is approximated by revolute joints about a common Y axis.
+Exact curved-path motion requires a Unity path constraint/controller, because URDF has no curved prismatic joint.
+Mass, inertia, effort, velocity, limits, friction, and collision primitives are safe placeholders pending measurements.
+
+Mesh assignment counts:
+base_link: 277
+front_steer_link: 11
+front_wheel_link: 9
+rear_left_steer_link: 11
+rear_left_wheel_link: 9
+rear_right_steer_link: 11
+rear_right_wheel_link: 9
+camera_tilt_link: 7
+left_eye_link: 6
+right_eye_link: 6
+tongue_club_link: 14
+catch_carriage_link: 10
+catch_claw_link: 2
